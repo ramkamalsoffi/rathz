@@ -1,26 +1,138 @@
 @import "tailwindcss";
 
 :root {
+  --primary: #2563eb;
+  --primary-foreground: #ffffff;
+  --secondary: #f8fafc;
+  --secondary-foreground: #0f172a;
+  --accent: #f1f5f9;
+  --accent-foreground: #1e293b;
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #020617;
+  --card: #ffffff;
+  --card-foreground: #020617;
+  --popover: #ffffff;
+  --popover-foreground: #020617;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #3b82f6;
+  --radius: 0.75rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.dark {
+  --background: #000000;
+  --foreground: #f8fafc;
+  --card: #0a0a0a;
+  --card-foreground: #f8fafc;
+  --popover: #0a0a0a;
+  --popover-foreground: #f8fafc;
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+  --secondary: #111111;
+  --secondary-foreground: #f8fafc;
+  --muted: #111111;
+  --muted-foreground: #94a3b8;
+  --accent: #111111;
+  --accent-foreground: #f8fafc;
+  --border: #1a1a1a;
+  --input: #1a1a1a;
+  --ring: #1d4ed8;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark .glass {
+  background: rgba(2, 6, 23, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-padding {
+  padding: 5rem 1.25rem;
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding: 8rem 2rem;
+  }
+}
+@keyframes kanban-drag {
+  0% { transform: translate(0, 0); opacity: 0; }
+  5% { transform: translate(0, 0); opacity: 1; }
+  25% { transform: translate(0, 0); opacity: 1; }
+  35% { transform: translate(calc(100% + 1rem), 0); opacity: 1; }
+  60% { transform: translate(calc(100% + 1rem), 0); opacity: 1; }
+  70% { transform: translate(calc(200% + 2rem), 0); opacity: 1; }
+  90% { transform: translate(calc(200% + 2rem), 0); opacity: 1; }
+  100% { transform: translate(calc(200% + 2rem), 0); opacity: 0; }
+}
+
+@keyframes kanban-flow-1 {
+  0%, 25% { opacity: 0; transform: scale(0.9); }
+  26%, 100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes kanban-flow-2 {
+  0%, 35% { opacity: 1; transform: scale(1); }
+  36%, 60% { opacity: 0; transform: scale(0.9); }
+  61%, 100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes kanban-flow-3 {
+  0%, 70% { opacity: 1; transform: scale(1); }
+  71%, 90% { opacity: 0; transform: scale(0.9); }
+  91%, 100% { opacity: 1; transform: scale(1); }
+}
+
+.animate-kanban-drag {
+  animation: kanban-drag 6s infinite ease-in-out;
+}
+
+.animate-kanban-flow-1 {
+  animation: kanban-flow-1 6s infinite ease-in-out;
+}
+.animate-kanban-flow-2 {
+  animation: kanban-flow-2 6s infinite ease-in-out;
+}
+@keyframes path-flow {
+  0% { stroke-dashoffset: 400; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes scan-beam {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(500%); }
+}
+
+.animate-path-flow {
+  stroke-dashoffset: 400;
+  stroke-dasharray: 400;
+  animation: path-flow 10s linear infinite;
+}
+
+.animate-scan-beam {
+  animation: scan-beam 3s linear infinite;
 }
