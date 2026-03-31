@@ -11,13 +11,18 @@ import RealResults from '@/components/sections/RealResults';
 import SocialProof from '@/components/sections/SocialProof';
 import WhyChooseUs from '@/components/sections/WhyChooseUs';
 import CTA from '@/components/sections/CTA';
+import FlowBackground from '@/components/visuals/FlowBackground';
 
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
-      <main className="flex-1">
+      <main className="flex-1 relative">
+        <FlowBackground />
+        
         <Hero />
+
+
         <ProblemSolution />
         <ProblemCta />
         <Features />

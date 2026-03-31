@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
 :root {
   --primary: #2563eb;
   --primary-foreground: #ffffff;
@@ -45,6 +49,13 @@
   * {
     border-color: var(--border);
   }
+
+  body, h1, h2, h3, h4, h5, h6, p, a, button, input, textarea, span, div {
+    font-family: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif !important;
+    font-optical-sizing: auto;
+    font-style: normal !important;
+  }
+
   body {
     background-color: var(--background);
     color: var(--foreground);
@@ -53,14 +64,14 @@
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.005);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.02);
 }
 
 .dark .glass {
-  background: rgba(2, 6, 23, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0);
+  border: 1px solid rgba(255, 255, 255, 0.02);
 }
 
 .gradient-text {
@@ -79,32 +90,104 @@
     padding: 8rem 2rem;
   }
 }
+
 @keyframes kanban-drag {
-  0% { transform: translate(0, 0); opacity: 0; }
-  5% { transform: translate(0, 0); opacity: 1; }
-  25% { transform: translate(0, 0); opacity: 1; }
-  35% { transform: translate(calc(100% + 1rem), 0); opacity: 1; }
-  60% { transform: translate(calc(100% + 1rem), 0); opacity: 1; }
-  70% { transform: translate(calc(200% + 2rem), 0); opacity: 1; }
-  90% { transform: translate(calc(200% + 2rem), 0); opacity: 1; }
-  100% { transform: translate(calc(200% + 2rem), 0); opacity: 0; }
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+
+  5% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+
+  25% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+
+  35% {
+    transform: translate(calc(100% + 1rem), 0);
+    opacity: 1;
+  }
+
+  60% {
+    transform: translate(calc(100% + 1rem), 0);
+    opacity: 1;
+  }
+
+  70% {
+    transform: translate(calc(200% + 2rem), 0);
+    opacity: 1;
+  }
+
+  90% {
+    transform: translate(calc(200% + 2rem), 0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(calc(200% + 2rem), 0);
+    opacity: 0;
+  }
 }
 
 @keyframes kanban-flow-1 {
-  0%, 25% { opacity: 0; transform: scale(0.9); }
-  26%, 100% { opacity: 1; transform: scale(1); }
+
+  0%,
+  25% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  26%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @keyframes kanban-flow-2 {
-  0%, 35% { opacity: 1; transform: scale(1); }
-  36%, 60% { opacity: 0; transform: scale(0.9); }
-  61%, 100% { opacity: 1; transform: scale(1); }
+
+  0%,
+  35% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  36%,
+  60% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  61%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @keyframes kanban-flow-3 {
-  0%, 70% { opacity: 1; transform: scale(1); }
-  71%, 90% { opacity: 0; transform: scale(0.9); }
-  91%, 100% { opacity: 1; transform: scale(1); }
+
+  0%,
+  70% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  71%,
+  90% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  91%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .animate-kanban-drag {
@@ -114,17 +197,29 @@
 .animate-kanban-flow-1 {
   animation: kanban-flow-1 6s infinite ease-in-out;
 }
+
 .animate-kanban-flow-2 {
   animation: kanban-flow-2 6s infinite ease-in-out;
 }
+
 @keyframes path-flow {
-  0% { stroke-dashoffset: 400; }
-  100% { stroke-dashoffset: 0; }
+  0% {
+    stroke-dashoffset: 400;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
 }
 
 @keyframes scan-beam {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(500%); }
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(500%);
+  }
 }
 
 .animate-path-flow {
@@ -135,4 +230,20 @@
 
 .animate-scan-beam {
   animation: scan-beam 3s linear infinite;
+}
+
+/* Hide scrollbars globally for cleaner UI */
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+}
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+/* Ensure glass elements have premium contrast */
+.glass-dark {
+  background: rgba(255, 255, 255, 0.005) !important;
+  backdrop-filter: blur(40px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.02) !important;
 }

@@ -36,7 +36,7 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section className="py-12 bg-black relative overflow-hidden">
+    <section className="py-12 bg-transparent relative overflow-hidden">
       {/* Dynamic background "Scan Line" animation layer */}
       <div className="absolute inset-0 z-0 opacity-10">
          <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-zinc-500 to-transparent animate-scan-beam"></div>
@@ -49,7 +49,7 @@ const WhyChooseUs = () => {
         <div className="lg:w-1/3 lg:sticky lg:top-32 h-fit mb-12 lg:mb-0">
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tighter leading-tight mb-8">
             Why <br />
-            <span className="text-zinc-500 italic">Choose Us</span>
+            <span className="text-white">Choose Us</span>
           </h2>
           <div className="w-16 md:w-20 h-1 bg-blue-500 mb-8 rounded-full"></div>
           <p className="text-lg md:text-xl text-zinc-600 max-w-sm leading-relaxed">
@@ -74,7 +74,7 @@ const WhyChooseUs = () => {
                  <div className="h-0 group-hover:h-full w-full bg-blue-500/50 transition-all duration-1000 origin-top"></div>
               </div>
 
-              <div className={`w-12 h-12 md:w-14 md:h-14 shrink-0 rounded-2xl bg-zinc-950 border border-white/5 flex items-center justify-center text-zinc-500 group-hover:bg-blue-500 group-hover:text-white group-hover:scale-110 transition-all duration-500 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.3)]`}>
+              <div className={`w-12 h-12 md:w-14 md:h-14 shrink-0 rounded-2xl bg-zinc-950 border border-white/5 flex items-center justify-center text-white group-hover:bg-blue-500 group-hover:text-white group-hover:scale-110 transition-all duration-500 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.3)]`}>
                 {point.icon}
               </div>
 
@@ -82,7 +82,7 @@ const WhyChooseUs = () => {
                 <h4 className="text-xl md:text-3xl font-bold text-white group-hover:translate-x-3 transition-transform duration-500 ease-out leading-snug">
                    {point.title}
                 </h4>
-                <p className="text-base md:text-lg text-zinc-500 max-w-xl group-hover:text-zinc-300 transition-colors">
+                <p className="text-base md:text-lg text-white max-w-xl group-hover:text-zinc-300 transition-colors">
                    {point.desc}
                 </p>
                 <div className="h-px w-full bg-zinc-900 mt-6 md:mt-8 group-hover:bg-blue-500/20"></div>

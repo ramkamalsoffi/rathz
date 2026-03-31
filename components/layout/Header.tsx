@@ -25,7 +25,7 @@ const Header = () => {
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center transform group-hover:rotate-12 transition-transform shadow-[0_0_15px_rgba(37,99,235,0.4)]">
               <Orbit className="w-5 h-5 text-white animate-pulse" />
             </div>
-            <span className="text-base md:text-lg font-bold tracking-tight text-white group-hover:text-blue-400 transition-colors">Sprintly</span>
+            <span className="text-base md:text-lg font-black tracking-widest text-white group-hover:text-blue-400 transition-colors uppercase leading-none">Rathz</span>
           </Link>
 
           {/* Desktop Nav */}
@@ -70,7 +70,7 @@ const Header = () => {
                   key={item.label}
                   href={item.href} 
                   onClick={() => setIsMenuOpen(false)}
-                  className="text-lg font-bold text-zinc-500 hover:text-white transition-colors flex items-center gap-4 group"
+                  className="text-lg font-bold text-white hover:text-white transition-colors flex items-center gap-4 group"
                   style={{ transitionDelay: `${index * 50}ms` }}
                 >
                   <span className="text-[10px] text-zinc-800 group-hover:text-blue-500 transition-colors">0{index + 1}</span>

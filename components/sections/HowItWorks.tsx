@@ -34,7 +34,7 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section className="section-padding bg-black relative overflow-hidden">
+    <section className="section-padding bg-transparent relative overflow-hidden">
       {/* Background radial glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none opacity-50"></div>
 
@@ -44,7 +44,7 @@ const HowItWorks = () => {
             <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
             <span className="text-[10px] font-bold uppercase tracking-widest text-emerald-500">How It Works</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">The Sprintly <span className="text-zinc-500 italic font-serif">Workflow</span></h2>
+          <h2 className="text-4xl md:text-5xl font-[1000] text-white underline decoration-blue-500/30 underline-offset-8 uppercase tracking-tighter">The Rathz <span className="text-blue-500">Workflow</span></h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -70,7 +70,7 @@ const HowItWorks = () => {
                 <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-emerald-400 transition-colors duration-500">
                   {step.title}
                 </h3>
-                <p className="text-zinc-500 text-sm leading-relaxed max-w-[80%] group-hover:text-zinc-400 transition-colors duration-500">
+                <p className="text-white text-sm leading-relaxed max-w-[80%] group-hover:text-zinc-400 transition-colors duration-500">
                   {step.description}
                 </p>
               </div>
