@@ -1,5 +1,6 @@
 import React from 'react';
 import ShinyText from '@/components/ui/ShinyText';
+import { Users, Zap, TrendingUp, Layers } from 'lucide-react';
 
 const ScalableTeams = () => {
   return (
@@ -25,10 +26,30 @@ const ScalableTeams = () => {
             /> Teams.
           </h3>
           <p className="text-zinc-500 font-bold italic tracking-[0.2em] uppercase text-xs mb-10">Perfect for Modern Businesses in India</p>
-          <p className="text-xl md:text-2xl text-zinc-500 max-w-4xl mx-auto leading-relaxed font-medium">
+          <p className="text-xl md:text-2xl text-zinc-500 max-w-4xl mx-auto leading-relaxed font-medium mb-16">
             Whether you're a startup or a scaling organization, our platform adapts to your workflow and 
             team size.
           </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { icon: Users, title: "Flexible Teams", desc: "Easily manage growing headcounts without friction." },
+              { icon: Zap, title: "Rapid Onboarding", desc: "Get new hires up and running in minutes, not days." },
+              { icon: TrendingUp, title: "Performance Alpha", desc: "Drive growth with data-backed performance metrics." },
+              { icon: Layers, title: "Deep Integration", desc: "Seamlessly fits into your existing tech stack." },
+            ].map((feature, i) => (
+              <div key={i} className="group p-8 rounded-3xl bg-zinc-900/30 border border-white/5 hover:border-blue-500/30 transition-all duration-500 text-left relative overflow-hidden">
+                <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <feature.icon className="w-12 h-12 text-blue-500/10" />
+                </div>
+                <div className="w-12 h-12 rounded-2xl bg-zinc-800 flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors duration-500">
+                  <feature.icon className="w-6 h-6 text-zinc-400 group-hover:text-white" />
+                </div>
+                <h4 className="text-lg font-bold text-white mb-3">{feature.title}</h4>
+                <p className="text-zinc-500 text-sm leading-relaxed">{feature.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

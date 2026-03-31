@@ -1,4 +1,5 @@
 import React from 'react';
+import { UserPlus, LayoutDashboard, LineChart, Rocket, ArrowRight } from 'lucide-react';
 
 const HowItWorks = () => {
   const steps = [
@@ -6,25 +7,29 @@ const HowItWorks = () => {
       step: "Step-01",
       title: "Set Up",
       description: "Add employees, roles, and departments in minutes.",
-      number: "1"
+      number: "1",
+      icon: UserPlus
     },
     {
       step: "Step-02",
       title: "Assign",
       description: "Use Kanban boards to structure and manage work.",
-      number: "2"
+      number: "2",
+      icon: LayoutDashboard
     },
     {
       step: "Step-03",
       title: "Track",
       description: "Monitor productivity and identify top performers.",
-      number: "3"
+      number: "3",
+      icon: LineChart
     },
     {
       step: "Step-04",
       title: "Scale",
       description: "Use insights to improve efficiency and grow faster.",
-      number: "4"
+      number: "4",
+      icon: Rocket
     }
   ];
 
@@ -56,6 +61,9 @@ const HowItWorks = () => {
               </div>
 
               <div className="relative z-10">
+                <div className="w-12 h-12 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center mb-6 group-hover:bg-emerald-500/20 group-hover:border-emerald-500/30 transition-all duration-500">
+                  <step.icon className="w-6 h-6 text-emerald-500" />
+                </div>
                 <span className="text-xs font-bold uppercase tracking-widest text-emerald-500 mb-6 block">
                   {step.step}
                 </span>
@@ -86,7 +94,7 @@ const HowItWorks = () => {
                     <span className="text-xs text-white font-medium">Trusted by 500+ Indian fast-growing teams</span>
                 </div>
                 <div className="w-8 h-8 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center group-hover:bg-emerald-500 transition-colors ml-2">
-                    <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                    <ArrowRight className="w-4 h-4 text-white" />
                 </div>
             </div>
         </div>

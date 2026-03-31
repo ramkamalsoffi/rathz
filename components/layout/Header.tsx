@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Orbit, Sparkles } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,10 +22,10 @@ const Header = () => {
       <header className="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50 transition-all duration-300 glass border border-white/10 rounded-[2rem] shadow-2xl backdrop-blur-xl">
         <div className="px-6 md:px-8 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 group shrink-0">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center transform group-hover:rotate-6 transition-transform">
-              <span className="text-white font-bold text-lg">S</span>
+            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center transform group-hover:rotate-12 transition-transform shadow-[0_0_15px_rgba(37,99,235,0.4)]">
+              <Orbit className="w-5 h-5 text-white animate-pulse" />
             </div>
-            <span className="text-base md:text-lg font-bold tracking-tight text-white">Sprintly</span>
+            <span className="text-base md:text-lg font-bold tracking-tight text-white group-hover:text-blue-400 transition-colors">Sprintly</span>
           </Link>
 
           {/* Desktop Nav */}
@@ -44,7 +44,8 @@ const Header = () => {
 
           <div className="flex items-center gap-3 md:gap-6">
             <button className="hidden sm:block text-xs font-semibold uppercase tracking-wider text-zinc-400 hover:text-white transition-colors">Login</button>
-            <button className="bg-primary text-white text-[10px] md:text-xs font-bold uppercase tracking-widest py-2 md:py-2.5 px-4 md:px-6 rounded-xl hover:bg-blue-600 transition-all shadow-lg shadow-blue-500/20 active:scale-95 shrink-0">
+            <button className="bg-primary text-white text-[10px] md:text-xs font-bold uppercase tracking-widest py-2 md:py-2.5 px-4 md:px-6 rounded-xl hover:bg-blue-600 transition-all shadow-lg shadow-blue-500/20 active:scale-95 shrink-0 flex items-center gap-2">
+               <Sparkles className="w-3 h-3" />
                Start Trial
             </button>
             {/* Mobile Menu Toggle */}
