@@ -30,6 +30,18 @@ const IndicatorStats = () => {
 
   return (
     <section className="py-24 md:py-32 bg-transparent relative overflow-hidden">
+      {/* Background SVG Overlay */}
+      <div 
+        className="absolute inset-0 z-0 pointer-events-none opacity-20"
+        style={{
+          backgroundImage: "url('/Gro34up.svg')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          filter: 'blur(2px)'
+        }}
+      />
+      
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
           

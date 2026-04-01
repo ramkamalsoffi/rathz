@@ -43,12 +43,20 @@ const Header = () => {
       >
         <div className="px-6 md:px-8 h-24 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 group shrink-0">
-            <Image
-              src="/Logo-01.svg"
-              alt="Sprintly Logo"
-              width={250}
-              height={80}
-              className="h-20 w-auto brightness-200 group-hover:scale-105 transition-transform"
+            <div 
+              className="w-32 aspect-[323/90] animate-shiny"
+              style={{
+                background: 'linear-gradient(120deg, #ffffff 0%, #ffffff 35%, #0545B1 50%, #ffffff 65%, #ffffff 100%)',
+                backgroundSize: '200% auto',
+                maskImage: 'url(/logo.svg)',
+                maskSize: 'contain',
+                maskPosition: 'left center',
+                maskRepeat: 'no-repeat',
+                WebkitMaskImage: 'url(/logo.svg)',
+                WebkitMaskSize: 'contain',
+                WebkitMaskPosition: 'left center',
+                WebkitMaskRepeat: 'no-repeat',
+              }}
             />
           </Link>
 
@@ -85,9 +93,9 @@ const Header = () => {
 
       {/* Mobile Sidebar Overlay */}
       <div className={`fixed inset-0 z-[49] lg:hidden transition-all duration-500 ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-md" onClick={() => setIsMenuOpen(false)}></div>
+        <div className="absolute inset-0 bg-blue-950/60 backdrop-blur-md" onClick={() => setIsMenuOpen(false)}></div>
 
-        <aside className={`absolute top-0 right-0 w-[280px] h-full bg-zinc-950 border-l border-white/10 p-8 pt-24 transition-transform duration-500 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+        <aside className={`absolute top-0 right-0 w-[280px] h-full bg-[#020617] border-l border-white/10 p-8 pt-24 transition-transform duration-500 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
           <nav className="flex flex-col gap-6">
             {navItems.map((item, index) => (
               <Link
@@ -102,7 +110,7 @@ const Header = () => {
               </Link>
             ))}
             <div className="w-full h-px bg-white/5 my-4"></div>
-            <button className="w-full py-4 text-center text-sm font-bold text-white uppercase tracking-widest bg-zinc-900 border border-white/10 rounded-2xl hover:bg-zinc-800 transition-colors">
+            <button className="w-full py-4 text-center text-sm font-bold text-white uppercase tracking-widest bg-blue-950/50 border border-white/10 rounded-2xl hover:bg-blue-600 transition-colors">
               Login
             </button>
           </nav>

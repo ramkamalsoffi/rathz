@@ -11,6 +11,7 @@ interface GlowingEffectProps {
   variant?: "default" | "white"
   className?: string
   disabled?: boolean
+  color?: string
 }
 
 export const GlowingEffect = ({
@@ -21,6 +22,7 @@ export const GlowingEffect = ({
   variant = "default",
   className,
   disabled = false,
+  color = "#3b82f6",
 }: GlowingEffectProps) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const isTargetWithinContainer = useRef(false)
@@ -60,6 +62,7 @@ export const GlowingEffect = ({
           "--proximity": `${proximity}px`,
           "--mouse-x": `${mousePosition.x}px`,
           "--mouse-y": `${mousePosition.y}px`,
+          "--glow-color": color,
           "--inactive-zone-size": `${inactiveZoneSize}`,
           maskImage: `radial-gradient(circle var(--proximity) at var(--mouse-x) var(--mouse-y), white, transparent)`,
           WebkitMaskImage: `radial-gradient(circle var(--proximity) at var(--mouse-x) var(--mouse-y), white, transparent)`,
@@ -68,11 +71,11 @@ export const GlowingEffect = ({
     >
       <div
         className={cn(
-          "absolute inset-0 rounded-[inherit] border-[2px] border-transparent",
-          variant === "default" && "border-blue-500/50",
-          variant === "white" && "border-white/50"
+          "absolute inset-0 rounded-[inherit] border-[2px] border-transparent transition-all duration-300",
         )}
         style={{
+          borderColor: "var(--glow-color)",
+          filter: "blur(var(--blur)) shadow(0 0 10px var(--glow-color))",
           maskImage: `conic-gradient(from 0deg at var(--mouse-x) var(--mouse-y), transparent 0%, white 10%, white 90%, transparent 100%)`,
           WebkitMaskImage: `conic-gradient(from 0deg at var(--mouse-x) var(--mouse-y), transparent 0%, white 10%, white 90%, transparent 100%)`,
         }}

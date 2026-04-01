@@ -39,12 +39,12 @@ const WhyChooseUs = () => {
     <section className="py-12 bg-transparent relative overflow-hidden">
       {/* Dynamic background "Scan Line" animation layer */}
       <div className="absolute inset-0 z-0 opacity-10">
-         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-zinc-500 to-transparent animate-scan-beam"></div>
-         <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-zinc-500 to-transparent animate-scan-beam delay-1000"></div>
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-zinc-500 to-transparent animate-scan-beam"></div>
+        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-zinc-500 to-transparent animate-scan-beam delay-1000"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 relative z-10 flex flex-col lg:flex-row gap-20">
-        
+
         {/* Left Side: Sticky Headline */}
         <div className="lg:w-1/3 lg:sticky lg:top-32 h-fit mb-12 lg:mb-0">
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tighter leading-tight mb-8">
@@ -60,18 +60,18 @@ const WhyChooseUs = () => {
         {/* Right Side: Visual List (Not Cards) */}
         <div className="flex-1 space-y-12 md:space-y-16">
           {points.map((point, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="group flex flex-col md:flex-row gap-6 md:gap-8 items-start relative transition-all duration-500"
             >
               {/* Animated Item Number */}
               <div className="hidden md:block text-[10px] font-black text-zinc-900 absolute -left-12 top-2 group-hover:text-[#0545B1] transition-colors">
-                 0{index + 1}
+                0{index + 1}
               </div>
 
               {/* Progress Line */}
               <div className="hidden md:block absolute left-[-2rem] top-12 bottom-[-4rem] w-px bg-zinc-900 group-last:hidden">
-                 <div className="h-0 group-hover:h-full w-full bg-[#0545B1]/50 transition-all duration-1000 origin-top"></div>
+                <div className="h-0 group-hover:h-full w-full bg-[#0545B1]/50 transition-all duration-1000 origin-top"></div>
               </div>
 
               <div className={`w-12 h-12 md:w-14 md:h-14 shrink-0 rounded-2xl bg-zinc-900/50 border-2 border-white/20 flex items-center justify-center text-white group-hover:bg-[#0545B1] group-hover:text-white group-hover:scale-110 transition-all duration-500 group-hover:shadow-[0_0_20px_rgba(5,69,177,0.3)]`}>
@@ -80,10 +80,10 @@ const WhyChooseUs = () => {
 
               <div className="space-y-4 flex-1">
                 <h4 className="text-xl md:text-3xl font-bold text-white group-hover:translate-x-3 transition-transform duration-500 ease-out leading-snug">
-                   {point.title}
+                  {point.title}
                 </h4>
                 <p className="text-base md:text-lg text-white max-w-xl group-hover:text-zinc-300 transition-colors">
-                   {point.desc}
+                  {point.desc}
                 </p>
                 <div className="h-px w-full bg-zinc-900 mt-6 md:mt-8 group-hover:bg-[#0545B1]/20"></div>
               </div>

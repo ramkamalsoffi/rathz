@@ -35,18 +35,30 @@ const ProblemSolution = () => {
       icon: MessageSquare,
       title: "Announcements Get Lost in Group Chats",
       desc: "Critical company updates buried under memes and personal messages. Nobody reads them.",
-      color: "pink"
+      color: "#ec4899"
     },
     {
       icon: FileSearch,
       title: "Documents Go Missing When You Need Them Most",
       desc: "Offer letters, contracts, and ID proofs scattered across folders, drives, and desktops.",
-      color: "orange"
+      color: "#f97316"
     }
   ];
 
+  const getGlowColor = (colorName: string) => {
+    switch (colorName) {
+      case "blue": return "#0545B1";
+      case "emerald": return "#10b981";
+      case "purple": return "#7402B1";
+      case "cyan": return "#06b6d4";
+      case "pink": return "#ec4899";
+      case "orange": return "#f97316";
+      default: return "#3b82f6";
+    }
+  };
+
   return (
-    <section className="py-24 md:py-32 bg-transparent relative overflow-hidden">
+    <section className="py-24 md:py-32 bg-transparent relative">
       <div className="max-w-7xl mx-auto px-4 relative z-10">
 
         <div className="text-center max-w-3xl mx-auto mb-20 space-y-6">
@@ -57,9 +69,7 @@ const ProblemSolution = () => {
           </h3>
           <p className="text-lg md:text-xl text-zinc-400 font-medium leading-relaxed pt-4">
             Modern Businesses Don&apos;t Fail for Lack of Effort — They Fail for Lack of Visibility <br />
-            If your HR data lives in five different places, your attendance tracking is manual,
-            and nobody knows who&apos;s working on what — you&apos;re not alone. These are the exact
-            problems Sprintly was built to solve.
+            If your HR data lives in five different places, your attendance tracking is manual, and nobody knows who's working on what you're not alone. These are the exact problems Rathz was built to solve.
           </p>
         </div>
 
@@ -71,12 +81,12 @@ const ProblemSolution = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group relative glass rounded-[2.5rem] p-8 overflow-hidden hover:border-white/10 transition-all duration-500"
+              className="group relative glass rounded-[2.5rem] p-8 overflow-hidden transition-all duration-500"
             >
-              <GlowingEffect blur={0} proximity={200} spread={50} variant="default" className="opacity-0 group-hover:opacity-100" />
+              <GlowingEffect blur={8} proximity={200} spread={50} color={getGlowColor(point.color)} className="opacity-0 group-hover:opacity-100" />
 
               <div className="relative z-10">
-                <div className="w-12 h-12 rounded-2xl bg-zinc-900 border border-white/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                <div className="w-12 h-12 rounded-2xl glass border border-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
                   <point.icon className="w-6 h-6 text-white" />
                 </div>
                 <h4 className="text-xl font-bold text-white mb-4 leading-tight">{point.title}</h4>
@@ -88,7 +98,7 @@ const ProblemSolution = () => {
 
         <div className="mt-20 text-center">
           <p className="text-xl md:text-2xl font-bold text-white tracking-tight">
-            You don&apos;t have a problem with people, <span className="text-blue-500 underline decoration-blue-500/30 underline-offset-8">you have a system problem</span>. Sprintly fixes that.
+            You don&apos;t have a problem with people, <span className="text-blue-500 underline decoration-blue-500/30 underline-offset-8">you have a system problem</span>. Rathz fixes that.
           </p>
         </div>
 

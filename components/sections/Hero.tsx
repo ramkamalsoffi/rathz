@@ -19,7 +19,7 @@ const Hero = () => {
       </div>
 
       {/* Subtle overlay to ensure text readability */}
-      <div className="absolute inset-0 bg-black/40 z-[1] pointer-events-none"></div>
+
 
       <div className="max-w-7xl mx-auto px-4 relative z-20 w-full py-12 md:py-20 text-center">
         <div className="flex flex-col items-center max-w-4xl mx-auto">
@@ -29,9 +29,9 @@ const Hero = () => {
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-[1000] tracking-tighter mb-8 leading-[1.1] text-white animate-in fade-in slide-in-from-bottom-6 duration-1000">
-            Workforce Management <br />
+            Global<br />
             <span className="bg-gradient-to-r from-blue-600 via-blue-400 to-purple-500 bg-clip-text text-transparent">
-              Scales with You
+               HR Management Software
             </span>
           </h1>
 

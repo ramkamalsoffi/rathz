@@ -1,12 +1,66 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { motion } from "framer-motion";
+import Orb from "@/components/ui/Orb";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Features = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const orbTopRef = useRef<HTMLDivElement>(null);
+  const orbBottomRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!orbTopRef.current) return;
+    const ctx = gsap.context(() => {
+      // Entrance animations
+      gsap.from(orbTopRef.current, {
+        scale: 0.5,
+        opacity: 0,
+        duration: 3,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 70%",
+        }
+      });
+      // Massive slow floating
+      gsap.to(orbTopRef.current, {
+        y: "+=120",
+        x: "+=50",
+        rotation: 12,
+        duration: 15,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+      });
+    }, sectionRef);
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section id="features" className="bg-transparent overflow-hidden pt-16 pb-16 md:pt-24 md:pb-24">
+    <section
+      id="features"
+      ref={sectionRef}
+      className="bg-transparent pt-16 pb-16 md:pt-24 md:pb-24 relative overflow-x-clip"
+    >
+      <div
+        ref={orbTopRef}
+        className="absolute top-[1%] left-[100%] -translate-x-1/2 w-[2000px] h-[2000px] pointer-events-none z-0 opacity-40 blur-[2px]"
+      >
+        <Orb
+          size={1.0}
+          color1="#7d00ff" // Vibrant Purple
+          color2="#0024ff" // Royal Blue
+          color3="#020617"
+          hollow={false}
+          hoverIntensity={0.5}
+        />
+      </div>
       <div className="max-w-7xl mx-auto px-4">
         <div className="mb-8 md:mb-12">
           <h2 className="text-sm font-bold uppercase tracking-[0.4em] text-blue-500 mb-6">Features</h2>
@@ -16,7 +70,7 @@ const Features = () => {
           </h3>
           <p className="text-zinc-400 max-w-2xl leading-relaxed font-medium">
             One Unified Platform Built for the Way Growing Indian Teams Actually Work.
-            Sprintly replaces your patchwork of tools with a single, intuitive workspace.
+            Rathz replaces your patchwork of tools with a single, intuitive workspace.
           </p>
         </div>
 
@@ -27,7 +81,7 @@ const Features = () => {
 
           {/* 1. Centralized Employee Management */}
           <div className="md:col-span-8 group relative glass rounded-[2.5rem] p-10 overflow-hidden hover:border-[#0545B1]/30 transition-all duration-700">
-            <GlowingEffect blur={0} proximity={240} spread={60} variant="default" className="opacity-0 group-hover:opacity-100" />
+            <GlowingEffect blur={8} proximity={240} spread={60} color="#0545B1" className="opacity-0 group-hover:opacity-100" />
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#0545B1]/[0.03] blur-[100px] pointer-events-none group-hover:bg-[#0545B1]/10 transition-colors"></div>
             <div className="relative z-10 flex flex-col md:flex-row gap-12 items-center">
               <div className="flex-1">
@@ -41,7 +95,7 @@ const Features = () => {
 
               {/* Mini Dashboard Component */}
               <div className="w-full md:w-80 space-y-3 relative group/directory">
-                <div className="glass rounded-2xl p-4 flex items-center gap-4 transition-all duration-700 hover:scale-[1.02] hover:bg-zinc-850 hover:shadow-[0_0_30px_rgba(59,130,246,0.1)] group-hover/directory:-translate-y-2">
+                <div className="bg-zinc-900/50 border border-white/5 backdrop-blur-md rounded-2xl p-4 flex items-center gap-4 transition-all duration-700 hover:scale-[1.02] hover:bg-zinc-800 hover:shadow-[0_0_30px_rgba(59,130,246,0.1)] group-hover/directory:-translate-y-2">
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#0545B1] to-[#3b82f6] flex items-center justify-center text-white font-bold opacity-80 group-hover/directory:opacity-100">JD</div>
                   <div className="flex flex-col">
                     <span className="text-xs font-bold text-white">John Doe</span>
@@ -50,7 +104,7 @@ const Features = () => {
                   <div className="ml-auto w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_#10b981]"></div>
                 </div>
 
-                <div className="glass rounded-2xl p-4 flex items-center gap-4 transition-all duration-700 hover:scale-[1.02] hover:bg-zinc-850 translate-x-4 shadow-xl z-20 group-hover/directory:translate-y-1">
+                <div className="bg-zinc-900/50 border border-white/5 backdrop-blur-md rounded-2xl p-4 flex items-center gap-4 transition-all duration-700 hover:scale-[1.02] hover:bg-zinc-800 translate-x-4 shadow-xl z-20 group-hover/directory:translate-y-1">
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#7402B1] to-[#a855f7] flex items-center justify-center text-white font-bold">AS</div>
                   <div className="flex flex-col">
                     <span className="text-xs font-bold text-white">Aditi Sharma</span>
@@ -63,11 +117,11 @@ const Features = () => {
                   </div>
                 </div>
 
-                <div className="bg-zinc-900/50 border border-white/5 rounded-2xl p-4 flex items-center gap-4 opacity-40 blur-[1px] group-hover/directory:opacity-80 group-hover/directory:blur-0 transition-all duration-1000 -translate-x-2">
+                <div className="bg-zinc-900/40 border border-white/5 rounded-2xl p-4 flex items-center gap-4 opacity-40 blur-[1px] group-hover/directory:opacity-80 group-hover/directory:blur-0 transition-all duration-1000 -translate-x-2">
                   <div className="w-8 h-8 rounded-full bg-zinc-800"></div>
                   <div className="flex-1 space-y-1">
-                    <div className="w-2/3 h-2 bg-zinc-800 rounded-full"></div>
-                    <div className="w-1/2 h-1.5 bg-zinc-900 rounded-full"></div>
+                    <div className="w-2/3 h-2 bg-zinc-800/50 rounded-full"></div>
+                    <div className="w-1/2 h-1.5 bg-zinc-800/30 rounded-full"></div>
                   </div>
                 </div>
               </div>
@@ -76,18 +130,18 @@ const Features = () => {
 
           {/* 2. Automated Leave & Attendance (Small) */}
           <div className="md:col-span-4 group relative glass rounded-[2.5rem] p-10 overflow-hidden hover:border-emerald-500/30 transition-all duration-700">
-            <GlowingEffect blur={0} proximity={120} spread={40} variant="default" className="opacity-0 group-hover:opacity-100" />
+            <GlowingEffect blur={8} proximity={120} spread={40} color="#10b981" className="opacity-0 group-hover:opacity-100" />
             <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 blur-[100px] pointer-events-none"></div>
             <div className="relative z-10 flex flex-col h-full">
               <h3 className="text-2xl font-bold text-white mb-4">Leave & Attendance Tracking</h3>
               <p className="text-zinc-400 text-sm mb-6">Configure policies, auto-track attendance, and manage holidays without manual entries.</p>
-              
+
               <div className="mb-8">
                 <span className="px-3 py-1 rounded-full border border-emerald-500/20 bg-emerald-500/10 text-emerald-500 text-[8px] font-black uppercase tracking-widest leading-none">Replaces: Manual registers</span>
               </div>
 
               <div className="relative flex-1 flex items-center justify-center p-6 min-h-[200px] group/stack">
-                <div className="absolute w-56 h-32 glass rounded-[2rem] p-5 shadow-2xl transition-all duration-700 
+                <div className="absolute w-56 h-32 bg-zinc-900 border border-white/5 rounded-[2rem] p-5 shadow-2xl transition-all duration-700 
                      z-10 -rotate-6 -translate-x-4
                      group-hover/stack:z-30 group-hover/stack:rotate-0 group-hover/stack:translate-x-0 group-hover/stack:translate-y-4 group-hover/stack:border-emerald-500/30">
                   <div className="flex justify-between items-center mb-4">
@@ -130,20 +184,20 @@ const Features = () => {
 
           {/* 3. Task Allocation */}
           <div className="md:col-span-4 group relative glass rounded-[2.5rem] p-10 overflow-hidden hover:border-[#7402B1]/30 transition-all duration-700">
-            <GlowingEffect blur={0} proximity={120} spread={40} variant="default" className="opacity-0 group-hover:opacity-100" />
+            <GlowingEffect blur={8} proximity={120} spread={40} color="#7402B1" className="opacity-0 group-hover:opacity-100" />
             <div className="relative z-10 flex flex-col h-full">
               <h3 className="text-2xl font-bold text-white mb-4">Task & Request Management</h3>
               <p className="text-zinc-400 text-sm leading-relaxed mb-6">Assign tasks to the right people, track progress in real time, and manage requests.</p>
-              
+
               <div className="mb-10">
                 <span className="px-3 py-1 rounded-full border border-purple-500/20 bg-purple-500/10 text-purple-500 text-[8px] font-black uppercase tracking-widest leading-none">Replaces: WhatsApp task threads</span>
               </div>
 
               <div className="mt-auto flex gap-3 h-24 items-end group/cards">
-                <div className="flex-1 h-full glass rounded-xl p-2 flex flex-col gap-2 transition-all duration-500 group-hover:bg-zinc-900 group-hover:-translate-y-1">
+                <div className="flex-1 h-full bg-zinc-900/50 border border-white/5 rounded-xl p-2 flex flex-col gap-2 transition-all duration-500 group-hover:-translate-y-1">
                   <div className="w-full h-8 bg-zinc-800 rounded-lg"></div>
                   <div className="w-3/4 h-2 bg-zinc-800 rounded-full"></div>
-                  <div className="w-1/2 h-1 bg-zinc-900 rounded-full"></div>
+                  <div className="w-1/2 h-1 bg-zinc-800 rounded-full text-[6px] text-zinc-500 px-1 italic">...task metadata</div>
                 </div>
                 <div className="flex-1 h-full glass border-[#7402B1]/30 rounded-xl p-2 flex flex-col gap-2 relative transition-all duration-500 group-hover:scale-105 group-hover:-translate-y-2 group-hover:shadow-[0_0_20px_rgba(116,2,177,0.15)]">
                   <div className="w-full h-10 bg-[#7402B1]/20 border border-[#7402B1]/50 rounded-lg"></div>
@@ -156,13 +210,13 @@ const Features = () => {
 
           {/* 4. Performance Analytics */}
           <div className="md:col-span-8 group relative glass rounded-[2.5rem] p-10 overflow-hidden hover:border-cyan-500/30 transition-all duration-700">
-            <GlowingEffect blur={0} proximity={240} spread={60} variant="default" className="opacity-0 group-hover:opacity-100" />
+            <GlowingEffect blur={8} proximity={240} spread={60} color="#06b6d4" className="opacity-0 group-hover:opacity-100" />
             <div className="absolute bottom-0 right-0 w-80 h-80 bg-cyan-500/5 blur-[100px] pointer-events-none"></div>
             <div className="relative z-10 flex flex-col md:flex-row h-full justify-between gap-12">
               <div className="flex-1">
                 <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Real-Time Performance Analytics</h3>
                 <p className="text-zinc-400 max-w-md mb-8">Identify your top performers using live productivity data — not opinions. Reward the right people based on facts.</p>
-                
+
                 <span className="px-3 py-1 rounded-full border border-cyan-500/20 bg-cyan-500/10 text-cyan-500 text-[8px] font-black uppercase tracking-widest leading-none">Replaces: Annual reviews with no data</span>
               </div>
               <div className="flex-1 flex justify-end items-end h-full min-h-[140px]">
@@ -181,29 +235,29 @@ const Features = () => {
 
           {/* 5. Kanban Workflow System */}
           <div className="md:col-span-6 group relative glass rounded-[2.5rem] p-10 overflow-hidden hover:border-orange-500/30 transition-all duration-700">
-            <GlowingEffect blur={0} proximity={300} spread={80} variant="default" className="opacity-0 group-hover:opacity-100" />
+            <GlowingEffect blur={8} proximity={300} spread={80} color="#f97316" className="opacity-0 group-hover:opacity-100" />
             <div className="absolute top-0 left-0 w-64 h-64 bg-orange-500/5 blur-[100px] pointer-events-none"></div>
             <div className="relative z-10">
               <h3 className="text-2xl font-bold text-white mb-4">Kanban Workflow Board</h3>
               <p className="text-zinc-400 text-sm mb-6">Visualise work moving from To-Do → In Progress → Done. Spot bottlenecks before they become blockers.</p>
-              
+
               <div className="mb-10">
                 <span className="px-3 py-1 rounded-full border border-orange-500/20 bg-orange-500/10 text-orange-500 text-[8px] font-black uppercase tracking-widest leading-none">Replaces: Physical whiteboards</span>
               </div>
 
               <div className="flex gap-4 min-h-[160px] group/kanban relative p-2">
-                <div className="flex-1 border border-white/5 rounded-2xl bg-zinc-900/30 px-3 py-4 flex flex-col gap-2 transition-all duration-300 group-hover/kanban:bg-orange-500/5 group-hover/kanban:border-orange-500/10">
+                <div className="flex-1 bg-zinc-950/30 border border-white/5 rounded-2xl px-3 py-4 flex flex-col gap-2 transition-all duration-300 group-hover/kanban:bg-orange-500/5 group-hover/kanban:border-orange-500/10">
                   <span className="text-[8px] font-bold text-zinc-600 uppercase mb-2">To Do</span>
-                  <div className="w-full h-12 bg-zinc-800/40 rounded-xl border border-white/5 opacity-0 animate-kanban-flow-1"></div>
-                  <div className="w-3/4 h-2 bg-zinc-800 rounded-full opacity-20"></div>
+                  <div className="w-full h-12 bg-zinc-900/50 rounded-xl border border-white/5 opacity-80 animate-kanban-flow-1"></div>
+                  <div className="w-3/4 h-2 bg-zinc-900 rounded-full opacity-40"></div>
                 </div>
-                <div className="flex-1 border border-white/5 rounded-2xl bg-zinc-950 px-3 py-4 flex flex-col gap-2 transition-all duration-300 group-hover/kanban:bg-purple-500/5 group-hover/kanban:border-purple-500/20">
+                <div className="flex-1 bg-zinc-950/30 border border-white/5 rounded-2xl px-3 py-4 flex flex-col gap-2 transition-all duration-300 group-hover/kanban:bg-purple-500/5 group-hover/kanban:border-purple-500/20">
                   <span className="text-[8px] font-bold text-zinc-600 uppercase mb-2">In Progress</span>
-                  <div className="w-full h-12 bg-zinc-800/40 rounded-xl border border-white/5 opacity-0 animate-kanban-flow-2"></div>
+                  <div className="w-full h-12 bg-zinc-900/50 rounded-xl border border-white/5 opacity-80 animate-kanban-flow-2"></div>
                 </div>
-                <div className="flex-1 border border-white/5 rounded-2xl bg-zinc-900/30 px-3 py-4 flex flex-col gap-2 transition-all duration-300 group-hover/kanban:bg-emerald-500/5 group-hover/kanban:border-emerald-500/10">
+                <div className="flex-1 bg-zinc-950/30 border border-white/5 rounded-2xl px-3 py-4 flex flex-col gap-2 transition-all duration-300 group-hover/kanban:bg-emerald-500/5 group-hover/kanban:border-emerald-500/10">
                   <span className="text-[8px] font-bold text-zinc-600 uppercase mb-2">Done</span>
-                  <div className="w-full h-12 bg-zinc-800/40 rounded-xl border border-white/5 opacity-0 animate-kanban-flow-3"></div>
+                  <div className="w-full h-12 bg-zinc-900/50 rounded-xl border border-white/5 opacity-80 animate-kanban-flow-3"></div>
                 </div>
 
                 {/* Animated Flying Card */}
@@ -216,35 +270,35 @@ const Features = () => {
 
           {/* 6. Broadcast Announcements */}
           <div className="md:col-span-6 group relative glass rounded-[2.5rem] p-10 overflow-hidden hover:border-pink-500/30 transition-all duration-700">
-            <GlowingEffect blur={0} proximity={240} spread={60} variant="default" className="opacity-0 group-hover:opacity-100" />
+            <GlowingEffect blur={8} proximity={240} spread={60} color="#ec4899" className="opacity-0 group-hover:opacity-100" />
             <div className="relative z-10 flex flex-col h-full">
               <h3 className="text-2xl font-bold text-white mb-4">Company-Wide Broadcast Announcements</h3>
               <p className="text-zinc-400 text-sm mb-6">Send one update and reach your entire team instantly — with read confirmations and zero noise.</p>
-              
+
               <div className="mb-10">
                 <span className="px-3 py-1 rounded-full border border-pink-500/20 bg-pink-500/10 text-pink-500 text-[8px] font-black uppercase tracking-widest leading-none">Replaces: WhatsApp group announcements</span>
               </div>
 
               <div className="relative flex-1 flex flex-col gap-3 min-h-[140px] group/notif">
-                <div className="w-full bg-zinc-900 border border-white/5 rounded-2xl p-4 flex items-center gap-4 transition-all duration-700
-                   group-hover/notif:-translate-y-12 group-hover/notif:opacity-0 group-hover/notif:scale-90">
+                <div className="w-full bg-zinc-900/80 border border-white/5 rounded-2xl p-4 flex items-center gap-4 transition-all duration-700
+                   group-hover/notif:-translate-y-12 group-hover/notif:opacity-0 group-hover/notif:scale-90 shadow-xl">
                   <div className="w-10 h-10 rounded-full bg-pink-500/20 flex items-center justify-center shrink-0">
                     <div className="w-4 h-4 bg-pink-500 rounded-full animate-pulse"></div>
                   </div>
                   <div className="flex flex-col">
                     <span className="text-xs font-bold text-white">New Policy Update</span>
-                    <span className="text-[10px] text-zinc-400">Sent to all departments</span>
+                    <span className="text-[10px] text-zinc-500">Sent to all departments</span>
                   </div>
                 </div>
 
                 <div className="w-full bg-zinc-900 border border-pink-500/20 rounded-2xl p-4 flex items-center gap-4 absolute top-14 left-0 transition-all duration-700
-                   group-hover/notif:top-0 group-hover/notif:border-pink-500 group-hover/notif:shadow-[0_0_20px_rgba(236,72,153,0.15)]">
+                   group-hover/notif:top-0 group-hover/notif:border-pink-500 group-hover/notif:shadow-[0_0_20px_rgba(236,72,153,0.15)] shadow-xl">
                   <div className="w-10 h-10 rounded-full bg-pink-500/20 border border-pink-500/50 flex items-center justify-center shrink-0">
                     <span className="text-white text-xs">📢</span>
                   </div>
                   <div className="flex flex-col">
                     <span className="text-xs font-bold text-white">Team Meeting @ 4PM</span>
-                    <span className="text-[10px] text-zinc-400">Join via Dashboard</span>
+                    <span className="text-[10px] text-zinc-500">Join via Dashboard</span>
                   </div>
                 </div>
               </div>
@@ -253,12 +307,12 @@ const Features = () => {
 
           {/* 7. Activity Tracking (Full Width) */}
           <div className="md:col-span-12 group relative glass rounded-[2.5rem] p-10 overflow-hidden hover:border-yellow-500/10 transition-all duration-700">
-            <GlowingEffect blur={0} proximity={400} spread={100} variant="default" className="opacity-0 group-hover:opacity-100" />
+            <GlowingEffect blur={8} proximity={400} spread={100} color="#eab308" className="opacity-0 group-hover:opacity-100" />
             <div className="relative z-10 flex flex-col md:flex-row items-center gap-12">
               <div className="flex-1">
                 <h3 className="text-3xl font-extrabold text-white mb-6">Activity Tracking Without Micromanagement</h3>
                 <p className="text-white leading-relaxed max-w-lg mb-8 text-lg">Understand how your team works and where time goes — with full visibility and zero surveillance culture.</p>
-                
+
                 <div className="flex flex-wrap gap-3 mb-8">
                   <span className="px-3 py-1 rounded-full border border-yellow-500/20 bg-yellow-500/10 text-yellow-500 text-[10px] font-black uppercase tracking-widest leading-none">Replaces: Hourly check-ins & status meetings</span>
                 </div>
@@ -271,10 +325,10 @@ const Features = () => {
                   ))}
                 </div>
               </div>
-              <div className="flex-1 w-full bg-zinc-900/30 border border-white/5 rounded-[2rem] p-8">
+              <div className="flex-1 w-full bg-zinc-950/40 border border-white/5 rounded-[2rem] p-8">
                 <div className="flex flex-wrap gap-2 justify-center">
                   {[...Array(40)].map((_, i) => (
-                    <div key={i} className={`w-4 h-4 rounded-md ${i % 7 === 0 ? 'bg-yellow-500' : 'bg-zinc-900'}`}></div>
+                    <div key={i} className={`w-4 h-4 rounded-md transition-all duration-500 ${i % 7 === 0 ? 'bg-yellow-500 shadow-[0_0_10px_rgba(234,179,8,0.5)]' : 'bg-zinc-800/80 hover:bg-zinc-700'}`}></div>
                   ))}
                 </div>
               </div>

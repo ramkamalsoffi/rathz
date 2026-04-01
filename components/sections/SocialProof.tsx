@@ -6,7 +6,7 @@ import { Quote } from 'lucide-react';
 
 const testimonials = [
   {
-    quote: "We used to spend 3 hours every Monday syncing on tasks. Sprintly cut that to 15 minutes. Our managers finally know what's happening without chasing anyone.",
+    quote: "We used to spend 3 hours every Monday syncing on tasks. Rathz cut that to 15 minutes. Our managers finally know what's happening without chasing anyone.",
     name: "Rahul Sharma",
     company: "TechCraft Solutions",
     role: "Operations Head",
@@ -14,7 +14,7 @@ const testimonials = [
     bg: "#1a2a4a",
   },
   {
-    quote: "Before Sprintly, our HR team was drowning in spreadsheets. Now attendance, leaves, and tasks are all in one place. It's like we hired an extra HR manager — but at zero cost.",
+    quote: "Before Rathz, our HR team was drowning in spreadsheets. Now attendance, leaves, and tasks are all in one place. It's like we hired an extra HR manager — but at zero cost.",
     name: "Priya Menon",
     company: "FinServe India",
     role: "HR Director",
@@ -22,7 +22,7 @@ const testimonials = [
     bg: "#1e1a3a",
   },
   {
-    quote: "Sprintly gave us visibility we never had. I can see who's doing what, who's overloaded, and who needs support — all in real time. Game changer for a growing startup.",
+    quote: "Rathz gave us visibility we never had. I can see who's doing what, who's overloaded, and who needs support — all in real time. Game changer for a growing startup.",
     name: "Arjun Nair",
     company: "ScaleUp Ventures",
     role: "Founder & CEO",
@@ -30,7 +30,7 @@ const testimonials = [
     bg: "#0e2a32",
   },
   {
-    quote: "The onboarding was ridiculously easy. We had our entire 80-person team on Sprintly within a day. No IT support. No training sessions. Just works.",
+    quote: "The onboarding was ridiculously easy. We had our entire 80-person team on Rathz within a day. No IT support. No training sessions. Just works.",
     name: "Sneha Patel",
     company: "Retail Connect Pvt Ltd",
     role: "General Manager",
@@ -38,7 +38,7 @@ const testimonials = [
     bg: "#0e2a1e",
   },
   {
-    quote: "We replaced our WhatsApp task chaos with Sprintly's Kanban boards. Deadlines are finally met, blockers are spotted early, and accountability is built in.",
+    quote: "We replaced our WhatsApp task chaos with Rathz's Kanban boards. Deadlines are finally met, blockers are spotted early, and accountability is built in.",
     name: "Vikram Iyer",
     company: "DevMatrix Labs",
     role: "CTO",
@@ -98,11 +98,11 @@ const SocialProof = () => {
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  // Compute shortest circular offset
+  // Compute shortest circular offset with symmetric balance
   const getOffset = (i: number, center: number) => {
     let offset = i - center;
-    if (offset > Math.floor(total / 2)) offset -= total;
-    if (offset < -Math.ceil(total / 2)) offset += total;
+    while (offset > total / 2) offset -= total;
+    while (offset < -total / 2) offset += total;
     return offset;
   };
 
@@ -114,8 +114,8 @@ const SocialProof = () => {
 
       const offset = (() => {
         let o = i - activeIdx;
-        if (o > Math.floor(total / 2)) o -= total;
-        if (o < -Math.ceil(total / 2)) o += total;
+        while (o > total / 2) o -= total;
+        while (o < -total / 2) o += total;
         return o;
       })();
 
@@ -277,11 +277,10 @@ const SocialProof = () => {
             <button
               key={i}
               onClick={() => goTo(i)}
-              className={`transition-all duration-400 rounded-full ${
-                i === active
+              className={`transition-all duration-400 rounded-full ${i === active
                   ? 'w-8 h-2 bg-blue-500 shadow-[0_0_12px_rgba(59,130,246,0.8)]'
                   : 'w-2 h-2 bg-zinc-700 hover:bg-zinc-500'
-              }`}
+                }`}
             />
           ))}
         </div>
