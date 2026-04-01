@@ -4,7 +4,7 @@ import { CheckCircle2, TrendingUp, Clock, FileCheck } from 'lucide-react';
 const RealResults = () => {
   const results = [
     {
-      icon: <Clock className="w-5 h-5 text-blue-500" />,
+      icon: <Clock className="w-5 h-5 text-[#0545B1]" />,
       title: "Save up to 20+ hours",
       desc: "Per week on HR operations and manual overhead.",
       metric: "-20hrs"
@@ -16,7 +16,7 @@ const RealResults = () => {
       metric: "100%"
     },
     {
-      icon: <FileCheck className="w-5 h-5 text-purple-500" />,
+      icon: <FileCheck className="w-5 h-5 text-[#7402B1]" />,
       title: "Zero Manual Errors",
       desc: "Remove paperwork and human error from the equation.",
       metric: "0 ERR"
@@ -50,13 +50,13 @@ const RealResults = () => {
             {results.map((item, index) => (
               <div
                 key={index}
-                className="p-6 md:p-8 rounded-[2rem] bg-zinc-950 border border-white/5 relative overflow-hidden group hover:border-blue-500/10 transition-all duration-700"
+                className="p-6 md:p-8 rounded-[2rem] bg-zinc-950 border border-white/5 relative overflow-hidden group hover:border-[#0545B1]/10 transition-all duration-700"
               >
-                <div className="absolute top-4 right-6 text-[10px] font-black text-zinc-800 tracking-widest group-hover:text-blue-900 transition-colors">METRIC</div>
-                <div className="w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-zinc-900 flex items-center justify-center mb-4 md:mb-6 group-hover:bg-blue-500 group-hover:text-white transition-all duration-500">
+                <div className="absolute top-4 right-6 text-[10px] font-black text-zinc-800 tracking-widest group-hover:text-[#0545B1]/50 transition-colors">METRIC</div>
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-zinc-900 flex items-center justify-center mb-4 md:mb-6 group-hover:bg-[#0545B1] group-hover:text-white transition-all duration-500">
                   {item.icon}
                 </div>
-                <div className="text-2xl md:text-3xl font-black text-white mb-2 tracking-tighter group-hover:text-blue-400 transition-colors">{item.metric}</div>
+                <div className="text-2xl md:text-3xl font-black text-white mb-2 tracking-tighter group-hover:text-[#0545B1] transition-colors">{item.metric}</div>
                 <p className="text-xs text-white leading-relaxed max-w-[200px] md:max-w-[120px]">{item.desc}</p>
               </div>
             ))}

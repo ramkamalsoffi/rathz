@@ -43,8 +43,8 @@ const FlowBackground = () => {
     const colors = new Float32Array(particleCount * 3);
     const sizes = new Float32Array(particleCount);
 
-    const color1 = new THREE.Color("#3b82f6"); // blue-500
-    const color2 = new THREE.Color("#a855f7"); // purple-500
+    const color1 = new THREE.Color("#0545B1"); // Brand Blue
+    const color2 = new THREE.Color("#7402B1"); // Brand Purple
     const color3 = new THREE.Color("#ffffff"); // white
 
     for (let i = 0; i < particleCount; i++) {
@@ -179,8 +179,11 @@ const FlowBackground = () => {
   return (
     <div 
       ref={containerRef} 
-      className="fixed inset-0 -z-10 bg-black pointer-events-none"
-      style={{ isolation: 'isolate' }}
+      className="fixed inset-0 -z-10 bg-[#020b1e] pointer-events-none"
+      style={{ 
+        isolation: 'isolate',
+        background: 'radial-gradient(circle at 50% 50%, #05142b 0%, #020b1e 100%)'
+      }}
     />
   );
 };

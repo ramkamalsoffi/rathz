@@ -51,7 +51,7 @@ const WhyChooseUs = () => {
             Why <br />
             <span className="text-white">Choose Us</span>
           </h2>
-          <div className="w-16 md:w-20 h-1 bg-blue-500 mb-8 rounded-full"></div>
+          <div className="w-16 md:w-20 h-1 bg-[#0545B1] mb-8 rounded-full"></div>
           <p className="text-lg md:text-xl text-zinc-600 max-w-sm leading-relaxed">
             Eliminate complexity and consolidate your stack into a single, high-performance ecosystem.
           </p>
@@ -65,16 +65,16 @@ const WhyChooseUs = () => {
               className="group flex flex-col md:flex-row gap-6 md:gap-8 items-start relative transition-all duration-500"
             >
               {/* Animated Item Number */}
-              <div className="hidden md:block text-[10px] font-black text-zinc-900 absolute -left-12 top-2 group-hover:text-blue-500 transition-colors">
+              <div className="hidden md:block text-[10px] font-black text-zinc-900 absolute -left-12 top-2 group-hover:text-[#0545B1] transition-colors">
                  0{index + 1}
               </div>
 
               {/* Progress Line */}
               <div className="hidden md:block absolute left-[-2rem] top-12 bottom-[-4rem] w-px bg-zinc-900 group-last:hidden">
-                 <div className="h-0 group-hover:h-full w-full bg-blue-500/50 transition-all duration-1000 origin-top"></div>
+                 <div className="h-0 group-hover:h-full w-full bg-[#0545B1]/50 transition-all duration-1000 origin-top"></div>
               </div>
 
-              <div className={`w-12 h-12 md:w-14 md:h-14 shrink-0 rounded-2xl bg-zinc-950 border border-white/5 flex items-center justify-center text-white group-hover:bg-blue-500 group-hover:text-white group-hover:scale-110 transition-all duration-500 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.3)]`}>
+              <div className={`w-12 h-12 md:w-14 md:h-14 shrink-0 rounded-2xl bg-zinc-950 border border-white/5 flex items-center justify-center text-white group-hover:bg-[#0545B1] group-hover:text-white group-hover:scale-110 transition-all duration-500 group-hover:shadow-[0_0_20px_rgba(5,69,177,0.3)]`}>
                 {point.icon}
               </div>
 
@@ -85,7 +85,7 @@ const WhyChooseUs = () => {
                 <p className="text-base md:text-lg text-white max-w-xl group-hover:text-zinc-300 transition-colors">
                    {point.desc}
                 </p>
-                <div className="h-px w-full bg-zinc-900 mt-6 md:mt-8 group-hover:bg-blue-500/20"></div>
+                <div className="h-px w-full bg-zinc-900 mt-6 md:mt-8 group-hover:bg-[#0545B1]/20"></div>
               </div>
             </div>
           ))}

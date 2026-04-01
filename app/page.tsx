@@ -7,30 +7,33 @@ import ProblemCta from '@/components/sections/ProblemCta';
 import Features from '@/components/sections/Features';
 import ScalableTeams from '@/components/sections/ScalableTeams';
 import HowItWorks from '@/components/sections/HowItWorks';
-import RealResults from '@/components/sections/RealResults';
+import IndicatorStats from '@/components/sections/IndicatorStats';
+// import RealResults from '@/components/sections/RealResults';
 import SocialProof from '@/components/sections/SocialProof';
 import WhyChooseUs from '@/components/sections/WhyChooseUs';
 import CTA from '@/components/sections/CTA';
-import FlowBackground from '@/components/visuals/FlowBackground';
+import WaveBackground from '@/components/visuals/WaveBackground';
+// import FlowBackground from '@/components/visuals/FlowBackground';
 
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
       <main className="flex-1 relative">
-        <FlowBackground />
-        
+        <WaveBackground />
+        {/* <FlowBackground /> */}
+
         <Hero />
 
-
         <ProblemSolution />
-        <ProblemCta />
+        {/* <ProblemCta /> */}
         <Features />
         <ScalableTeams />
-        <HowItWorks />
-        <RealResults />
+        {/* <HowItWorks /> */}
+        <IndicatorStats />
+        {/* <RealResults /> */}
         <SocialProof />
-        <WhyChooseUs />
+        {/* <WhyChooseUs /> */}
         <CTA />
       </main>
       <Footer />

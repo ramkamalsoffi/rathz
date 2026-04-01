@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
+    "@tabler/icons-react": "^3.41.1",
     "@types/three": "^0.183.1",
     "clsx": "^2.1.1",
     "face-api.js": "^0.22.2",

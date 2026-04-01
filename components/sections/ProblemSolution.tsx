@@ -1,83 +1,97 @@
+'use client';
+
 import React from 'react';
-import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { Share2, Clock, Eye, BarChart3, MessageSquare, FileSearch } from 'lucide-react';
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 const ProblemSolution = () => {
+  const painPoints = [
+    {
+      icon: Share2,
+      title: "Employee Data Scattered Across Tools",
+      desc: "Profiles in email, documents in Drive, leave history in someone's memory. One employee query takes 20 minutes to answer.",
+      color: "blue"
+    },
+    {
+      icon: Clock,
+      title: "Attendance & Leave Tracking Is a Nightmare",
+      desc: "Manual punch-ins, missed leave applications, payroll errors every month — the same problems, month after month.",
+      color: "emerald"
+    },
+    {
+      icon: Eye,
+      title: "Zero Visibility into Task Progress",
+      desc: "You're always asking \"What's the update?\" instead of knowing. Deadlines slip without warning.",
+      color: "purple"
+    },
+    {
+      icon: BarChart3,
+      title: "Performance Is Based on Gut Feel",
+      desc: "You can't identify your top performers because there's no data — only impressions and opinions.",
+      color: "cyan"
+    },
+    {
+      icon: MessageSquare,
+      title: "Announcements Get Lost in Group Chats",
+      desc: "Critical company updates buried under memes and personal messages. Nobody reads them.",
+      color: "pink"
+    },
+    {
+      icon: FileSearch,
+      title: "Documents Go Missing When You Need Them Most",
+      desc: "Offer letters, contracts, and ID proofs scattered across folders, drives, and desktops.",
+      color: "orange"
+    }
+  ];
+
   return (
-    <section className="pt-12 lg:pt-20 pb-0 bg-transparent relative overflow-hidden">
-      {/* Subtle background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none"></div>
-
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-
-          {/* Left Side: Content */}
-          <div className="flex-1 space-y-6 relative z-10">
-            <h2 className="text-3xl md:text-5xl font-extrabold text-white leading-tight">
-              Struggling to Manage <br />
-              <span className="text-blue-500">Employees, Tasks, and Performance?</span>
-              <br /> We Fix That.
-            </h2>
-
-            <div className="space-y-6">
-              <p className="text-xl text-zinc-300 font-medium leading-relaxed">
-                Modern businesses don’t fail because of lack of effort — they fail due to <span className="text-white">lack of clarity, visibility, and structure</span>.
-              </p>
-
-              <p className="text-white leading-relaxed text-lg">
-                Our workforce management platform helps you bring everything into one place — from employee
-                data to task tracking and performance insights.
-              </p>
-
-              <p className="border-l-2 border-blue-500/30 pl-6 text-zinc-400 text-lg leading-relaxed">
-                With a centralized system, your team works smarter, tasks move faster, and performance
-                becomes measurable.
-              </p>
-            </div>
-
-            <div className="pt-4 flex items-center gap-6">
-              <div className="flex flex-col">
-                <span className="text-2xl font-bold text-white tracking-tighter">100%</span>
-                <span className="text-[10px] font-black uppercase text-zinc-600 tracking-widest">Visibility</span>
-              </div>
-              <div className="w-px h-10 bg-zinc-900"></div>
-              <div className="flex flex-col">
-                <span className="text-2xl font-bold text-white tracking-tighter">Instant</span>
-                <span className="text-[10px] font-black uppercase text-zinc-600 tracking-widest">Analytics</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Side: Visual Image */}
-          <div className="flex-1 w-full relative group">
-            {/* Decorative background border glow */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-[2.5rem] blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-
-            <div className="relative bg-zinc-950 border border-white/5 rounded-[2.5rem] overflow-hidden aspect-video shadow-2xl">
-              <Image
-                src="/hr_dashboard_aesthetic_1774865988358.png"
-                alt="Workforce Dashboard"
-                fill
-                className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
-              />
-              {/* Overlay glass effect */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
-            </div>
-
-            {/* Floating badge */}
-            <div className="absolute -bottom-6 -right-6 md:-right-10 bg-zinc-900 border border-white/10 p-5 rounded-3xl shadow-3xl backdrop-blur-xl animate-bounce-slow">
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center">
-                  <div className="w-4 h-4 bg-blue-500 rounded-full"></div>
-                </div>
-                <div>
-                  <p className="text-xs font-bold text-white">Live Performance Feed</p>
-                  <p className="text-[10px] text-white tracking-widest">REAL-TIME DATA SYNC</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
+    <section className="py-24 md:py-32 bg-transparent relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 relative z-10">
+        
+        <div className="text-center max-w-3xl mx-auto mb-20 space-y-6">
+          <h2 className="text-sm font-bold uppercase tracking-[0.4em] text-blue-500">HR problems for growing businesses</h2>
+          <h3 className="text-4xl md:text-6xl font-[1000] text-white tracking-tighter leading-none">
+            Still Managing Your Team on <br />
+            <span className="text-zinc-600">Spreadsheets and WhatsApp?</span>
+          </h3>
+          <p className="text-lg md:text-xl text-zinc-400 font-medium leading-relaxed pt-4">
+            Modern Businesses Don&apos;t Fail for Lack of Effort — They Fail for Lack of Visibility <br />
+            If your HR data lives in five different places, your attendance tracking is manual, 
+            and nobody knows who&apos;s working on what — you&apos;re not alone. These are the exact 
+            problems Sprintly was built to solve.
+          </p>
         </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {painPoints.map((point, index) => (
+            <motion.div 
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="group relative glass rounded-[2.5rem] p-8 overflow-hidden hover:border-white/10 transition-all duration-500"
+            >
+              <GlowingEffect blur={0} proximity={200} spread={50} variant="default" className="opacity-0 group-hover:opacity-100" />
+              
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-2xl bg-zinc-900 border border-white/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                  <point.icon className="w-6 h-6 text-white" />
+                </div>
+                <h4 className="text-xl font-bold text-white mb-4 leading-tight">{point.title}</h4>
+                <p className="text-zinc-400 text-sm leading-relaxed">{point.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="mt-20 text-center">
+          <p className="text-xl md:text-2xl font-bold text-white tracking-tight">
+            You don&apos;t have a problem with people, <span className="text-blue-500 underline decoration-blue-500/30 underline-offset-8">you have a system problem</span>. Sprintly fixes that.
+          </p>
+        </div>
+
       </div>
     </section>
   );
