@@ -52,7 +52,7 @@ const WhyChooseUs = () => {
             <span className="text-white">Choose Us</span>
           </h2>
           <div className="w-16 md:w-20 h-1 bg-[#0545B1] mb-8 rounded-full"></div>
-          <p className="text-lg md:text-xl text-zinc-600 max-w-sm leading-relaxed">
+          <p className="text-lg md:text-xl text-zinc-400 max-w-sm leading-relaxed">
             Eliminate complexity and consolidate your stack into a single, high-performance ecosystem.
           </p>
         </div>
@@ -74,7 +74,7 @@ const WhyChooseUs = () => {
                  <div className="h-0 group-hover:h-full w-full bg-[#0545B1]/50 transition-all duration-1000 origin-top"></div>
               </div>
 
-              <div className={`w-12 h-12 md:w-14 md:h-14 shrink-0 rounded-2xl bg-zinc-950 border border-white/5 flex items-center justify-center text-white group-hover:bg-[#0545B1] group-hover:text-white group-hover:scale-110 transition-all duration-500 group-hover:shadow-[0_0_20px_rgba(5,69,177,0.3)]`}>
+              <div className={`w-12 h-12 md:w-14 md:h-14 shrink-0 rounded-2xl bg-zinc-900/50 border-2 border-white/20 flex items-center justify-center text-white group-hover:bg-[#0545B1] group-hover:text-white group-hover:scale-110 transition-all duration-500 group-hover:shadow-[0_0_20px_rgba(5,69,177,0.3)]`}>
                 {point.icon}
               </div>
 

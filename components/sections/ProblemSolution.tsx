@@ -48,7 +48,7 @@ const ProblemSolution = () => {
   return (
     <section className="py-24 md:py-32 bg-transparent relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 relative z-10">
-        
+
         <div className="text-center max-w-3xl mx-auto mb-20 space-y-6">
           <h2 className="text-sm font-bold uppercase tracking-[0.4em] text-blue-500">HR problems for growing businesses</h2>
           <h3 className="text-4xl md:text-6xl font-[1000] text-white tracking-tighter leading-none">
@@ -57,15 +57,15 @@ const ProblemSolution = () => {
           </h3>
           <p className="text-lg md:text-xl text-zinc-400 font-medium leading-relaxed pt-4">
             Modern Businesses Don&apos;t Fail for Lack of Effort — They Fail for Lack of Visibility <br />
-            If your HR data lives in five different places, your attendance tracking is manual, 
-            and nobody knows who&apos;s working on what — you&apos;re not alone. These are the exact 
+            If your HR data lives in five different places, your attendance tracking is manual,
+            and nobody knows who&apos;s working on what — you&apos;re not alone. These are the exact
             problems Sprintly was built to solve.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {painPoints.map((point, index) => (
-            <motion.div 
+            <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -74,7 +74,7 @@ const ProblemSolution = () => {
               className="group relative glass rounded-[2.5rem] p-8 overflow-hidden hover:border-white/10 transition-all duration-500"
             >
               <GlowingEffect blur={0} proximity={200} spread={50} variant="default" className="opacity-0 group-hover:opacity-100" />
-              
+
               <div className="relative z-10">
                 <div className="w-12 h-12 rounded-2xl bg-zinc-900 border border-white/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
                   <point.icon className="w-6 h-6 text-white" />

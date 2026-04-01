@@ -11,6 +11,9 @@ interface OrbProps {
   forceHoverState?: boolean;
   backgroundColor?: string;
   size?: number;
+  color1?: string;
+  color2?: string;
+  color3?: string;
 }
 
 export default function Orb({
@@ -19,7 +22,10 @@ export default function Orb({
   rotateOnHover = true,
   forceHoverState = false,
   backgroundColor = '#000000',
-  size = 1.0
+  size = 1.0,
+  color1 = '#9c43fe',
+  color2 = '#4cc2e9',
+  color3 = '#101499'
 }: OrbProps) {
   const ctnDom = useRef<HTMLDivElement>(null);
 
@@ -45,6 +51,9 @@ export default function Orb({
     uniform float hoverIntensity;
     uniform float size;
     uniform vec3 backgroundColor;
+    uniform vec3 color1;
+    uniform vec3 color2;
+    uniform vec3 color3;
     varying vec2 vUv;
 
     vec3 rgb2yiq(vec3 c) {
@@ -109,14 +118,6 @@ export default function Orb({
       return dot(vec4(31.316), n);
     }
 
-    vec4 extractAlpha(vec3 colorIn) {
-      float a = max(max(colorIn.r, colorIn.g), colorIn.b);
-      return vec4(colorIn.rgb / (a + 1e-5), a);
-    }
-
-    const vec3 baseColor1 = vec3(0.611765, 0.262745, 0.996078);
-    const vec3 baseColor2 = vec3(0.298039, 0.760784, 0.913725);
-    const vec3 baseColor3 = vec3(0.062745, 0.078431, 0.600000);
     const float innerRadius = 0.6;
     const float noiseScale = 0.65;
 
@@ -128,9 +129,9 @@ export default function Orb({
     }
 
     vec4 draw(vec2 uv) {
-      vec3 color1 = adjustHue(baseColor1, hue);
-      vec3 color2 = adjustHue(baseColor2, hue);
-      vec3 color3 = adjustHue(baseColor3, hue);
+      vec3 finalColor1 = adjustHue(color1, hue);
+      vec3 finalColor2 = adjustHue(color2, hue);
+      vec3 finalColor3 = adjustHue(color3, hue);
       
       float ang = atan(uv.y, uv.x);
       float len = length(uv);
@@ -148,8 +149,8 @@ export default function Orb({
       v0 *= mix(innerFade, 1.0, bgLuminance * 0.7);
       float cl = cos(ang + iTime * 2.0) * 0.5 + 0.5;
       
-      float a = iTime * -1.0;
-      vec2 pos = vec2(cos(a), sin(a)) * r0;
+      float a_rot = iTime * -1.0;
+      vec2 pos = vec2(cos(a_rot), sin(a_rot)) * r0;
       float d = distance(uv, pos);
       float v1 = light2(1.5, 5.0, d);
       v1 *= light1(1.0, 50.0, d0);
@@ -157,10 +158,10 @@ export default function Orb({
       float v2 = smoothstep(1.0, mix(innerRadius, 1.0, n0 * 0.5), len);
       float v3 = smoothstep(innerRadius, mix(innerRadius, 1.0, 0.5), len);
       
-      vec3 colBase = mix(color1, color2, cl);
+      vec3 colBase = mix(finalColor1, finalColor2, cl);
       float fadeAmount = mix(1.0, 0.1, bgLuminance);
       
-      vec3 darkCol = mix(color3, colBase, v0);
+      vec3 darkCol = mix(finalColor3, colBase, v0);
       darkCol = (darkCol + v1) * v2 * v3;
       darkCol = clamp(darkCol, 0.0, 1.0);
       
@@ -170,7 +171,8 @@ export default function Orb({
       
       vec3 finalCol = mix(darkCol, lightCol, bgLuminance);
       
-      return extractAlpha(finalCol);
+      float a = max(max(finalCol.r, finalCol.g), finalCol.b);
+      return vec4(finalCol.rgb / (a + 1e-5), a);
     }
 
     vec4 mainImage(vec2 fragCoord) {
@@ -219,7 +221,10 @@ export default function Orb({
         rot: { value: 0 },
         hoverIntensity: { value: hoverIntensity },
         backgroundColor: { value: hexToVec3(backgroundColor) },
-        size: { value: size }
+        size: { value: size },
+        color1: { value: hexToVec3(color1) },
+        color2: { value: hexToVec3(color2) },
+        color3: { value: hexToVec3(color3) }
       }
     });
 
@@ -279,6 +284,9 @@ export default function Orb({
       program.uniforms.size.value = size;
       program.uniforms.hoverIntensity.value = hoverIntensity;
       program.uniforms.backgroundColor.value = hexToVec3(backgroundColor);
+      program.uniforms.color1.value = hexToVec3(color1);
+      program.uniforms.color2.value = hexToVec3(color2);
+      program.uniforms.color3.value = hexToVec3(color3);
 
       const effectiveHover = forceHoverState ? 1 : targetHover;
       program.uniforms.hover.value += (effectiveHover - program.uniforms.hover.value) * 0.1;
@@ -302,7 +310,7 @@ export default function Orb({
       }
       gl.getExtension('WEBGL_lose_context')?.loseContext();
     };
-  }, [hue, hoverIntensity, rotateOnHover, forceHoverState, backgroundColor, size]);
+  }, [hue, hoverIntensity, rotateOnHover, forceHoverState, backgroundColor, size, color1, color2, color3]);
 
   return <div ref={ctnDom} className="orb-container" />;
 }

@@ -20,7 +20,7 @@ export default function Home() {
     <div className="flex min-h-screen flex-col">
       <Header />
       <main className="flex-1 relative">
-        <WaveBackground />
+        {/* <WaveBackground /> */}
         {/* <FlowBackground /> */}
 
         <Hero />

@@ -71,7 +71,7 @@ const ScalableTeams = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="group p-10 rounded-[2.5rem] bg-zinc-950/50 border border-white/5 hover:border-blue-500/20 transition-all duration-500 text-left relative overflow-hidden backdrop-blur-sm"
+              className="group p-10 rounded-[2.5rem] glass border border-white/5 hover:border-blue-500/20 transition-all duration-500 text-left relative overflow-hidden backdrop-blur-sm"
             >
               <div className="absolute top-0 right-0 p-8 opacity-0 group-hover:opacity-100 transition-opacity">
                 <item.icon className="w-16 h-16 text-blue-500/5" />

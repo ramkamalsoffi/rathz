@@ -231,8 +231,8 @@ const SocialProof = () => {
             >
               {/* Card */}
               <div
-                className="rounded-[2rem] p-7 md:p-9 min-h-[380px] flex flex-col justify-between border border-white/10 shadow-2xl"
-                style={{ background: `linear-gradient(145deg, ${t.bg}, #0a0a0f)` }}
+                className="rounded-[2rem] p-7 md:p-9 min-h-[380px] flex flex-col justify-between border border-white/10 shadow-2xl glass"
+                style={{ background: 'rgba(255, 255, 255, 0.08)', backdropFilter: 'blur(20px)' }}
               >
                 {/* Active card: glowing border */}
                 {i === active && (

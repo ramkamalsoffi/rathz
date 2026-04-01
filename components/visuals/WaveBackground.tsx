@@ -91,7 +91,7 @@ const WaveBackground = () => {
   return (
     <div 
       ref={containerRef}
-      className="fixed inset-0 -z-[1] pointer-events-none bg-[#020611] overflow-hidden"
+      className="fixed inset-0 -z-[1] pointer-events-none bg-[#030303] overflow-hidden"
     >
       {/* Intense background radial glows */}
       <div className="absolute top-0 right-0 w-[50%] h-[50%] bg-blue-600/10 blur-[150px] rounded-full"></div>

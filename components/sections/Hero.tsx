@@ -1,15 +1,25 @@
 import React from "react";
+import Orb from "@/components/ui/Orb";
 import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
 
 const Hero = () => {
   return (
     <section className="relative h-screen flex flex-col items-center justify-center pt-24 overflow-hidden bg-transparent">
-      <div className="absolute inset-0 z-0">
-        {/* Global FlowBackground handles the 3D scene */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-80 scale-150">
+        <Orb
+          hoverIntensity={0.5}
+          rotateOnHover={true}
+          hue={0}
+          forceHoverState={false}
+          color1="#7d00ff"
+          color2="#0024ff"
+          color3="#00018b"
+          size={1.5}
+        />
       </div>
 
       {/* Subtle overlay to ensure text readability */}
-      <div className="absolute inset-0 bg-black/10 z-[1] pointer-events-none"></div>
+      <div className="absolute inset-0 bg-black/40 z-[1] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 relative z-20 w-full py-12 md:py-20 text-center">
         <div className="flex flex-col items-center max-w-4xl mx-auto">

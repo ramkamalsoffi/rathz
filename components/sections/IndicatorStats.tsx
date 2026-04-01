@@ -43,7 +43,7 @@ const IndicatorStats = () => {
               </h2>
             </div>
 
-            <div className="inline-flex items-center gap-6 p-4 rounded-3xl bg-zinc-950/50 border border-white/5 backdrop-blur-xl">
+            <div className="inline-flex items-center gap-6 p-4 rounded-3xl glass border border-white/10 backdrop-blur-xl">
               <div className="flex -space-x-3">
                 {[1, 2, 3].map((i) => (
                   <div key={i} className="w-10 h-10 rounded-full border-2 border-zinc-950 bg-zinc-800 flex items-center justify-center text-[10px] font-bold text-white overflow-hidden">
