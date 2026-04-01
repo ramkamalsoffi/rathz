@@ -182,7 +182,7 @@ const SocialProof = () => {
   };
 
   return (
-    <section className="py-24 md:py-36 bg-transparent relative overflow-hidden">
+    <section className="py-12 md:py-20 bg-transparent relative overflow-hidden">
       {/* Ambient glows */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-blue-600/5 blur-[160px] rounded-full pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-purple-600/5 blur-[120px] rounded-full pointer-events-none" />
@@ -201,12 +201,12 @@ const SocialProof = () => {
           <h2 className="text-4xl md:text-6xl font-[1000] text-white tracking-tighter leading-tight">
             Our Clients Love to<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
-              Use Sprintly
+              Use Rathz
             </span>
           </h2>
         </div>
 
-        <p className="text-zinc-500 text-base md:text-lg mb-20 font-medium tracking-wide">
+        <p className="text-zinc-500 text-base md:text-lg mb-12 font-medium tracking-wide">
           500+ Indian Businesses Already Made the Switch
         </p>
 

@@ -33,13 +33,13 @@ const CTA = () => {
             </p>
 
             {/* High-Impact Actions */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-6 pt-4">
-              <button className="w-full sm:w-auto text-sm md:text-lg py-3 md:py-4 px-8 md:px-10 bg-blue-600 text-white font-black uppercase tracking-widest rounded-full shadow-[0_10px_30px_-10px_rgba(37,99,235,0.5)] active:scale-95 transition-all">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 pt-4">
+              <button className="w-full sm:w-auto text-sm md:text-xs py-3 md:py-3 px-8 md:px-8 bg-blue-600 text-white font-black uppercase tracking-widest rounded-full shadow-[0_10px_30px_-10px_rgba(37,99,235,0.5)] active:scale-95 transition-all">
                 Start Free Trial — 14 Days, Fully Free
               </button>
 
-              <button className="w-full sm:w-auto px-8 md:px-10 py-3 md:py-4 bg-blue-950/40 border border-white/10 text-white font-bold text-sm md:text-lg rounded-full active:scale-95 flex items-center justify-center gap-3 hover:bg-blue-900/40 transition-colors">
-                <Calendar className="w-5 h-5 text-white" />
+              <button className="w-full sm:w-auto px-8 md:px-8 py-3 md:py-3 bg-blue-950/40 border border-white/10 text-white font-bold text-sm md:text-xs rounded-full active:scale-95 flex items-center justify-center gap-3 hover:bg-blue-900/40 transition-colors">
+                <Calendar className="w-4 h-4 text-white" />
                 Book a 15-Minute Demo
               </button>
             </div>

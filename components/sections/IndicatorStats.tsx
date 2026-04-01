@@ -46,7 +46,7 @@ const IndicatorStats = () => {
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
           
           {/* Left Column: Heading & Rating */}
-          <div className="flex-1 space-y-10">
+          <div className="flex-1 space-y-10 flex flex-col items-center text-center lg:items-start lg:text-left">
             <div className="space-y-4">
               <span className="text-[10px] font-black uppercase tracking-[0.4em] text-blue-500">Indicator</span>
               <h2 className="text-4xl md:text-6xl font-[1000] text-white leading-[1.1] tracking-tighter">
@@ -79,7 +79,7 @@ const IndicatorStats = () => {
 
           {/* Right Column: 2x2 Grid */}
           <div className="flex-1 w-full max-w-2xl">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 text-center md:text-left">
               {stats.map((stat, index) => (
                 <motion.div 
                   key={index}
@@ -87,9 +87,9 @@ const IndicatorStats = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="space-y-2 group"
+                  className="space-y-2 group flex flex-col items-center md:items-start"
                 >
-                  <div className={`text-5xl md:text-6xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r ${stat.gradient} group-hover:scale-105 transition-transform duration-500 origin-left`}>
+                  <div className={`text-5xl md:text-6xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r ${stat.gradient} group-hover:scale-105 transition-transform duration-500 origin-center md:origin-left`}>
                     {stat.value}
                   </div>
                   <p className="text-zinc-400 font-bold uppercase tracking-widest text-xs md:text-sm">

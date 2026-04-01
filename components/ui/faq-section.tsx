@@ -216,7 +216,7 @@ export default function FAQWithSpiral() {
 
   return (
     <div
-      className="relative min-h-screen w-full overflow-hidden text-white"
+      className="relative w-full overflow-hidden text-white"
       style={{ backgroundColor: cfg.background }}
     >
       {/* Background Spiral */}
@@ -228,9 +228,9 @@ export default function FAQWithSpiral() {
       </div>
 
       {/* Layout */}
-      <div className="relative mx-auto max-w-5xl px-6 py-16">
+      <div className="relative mx-auto max-w-5xl px-6 pt-0 md:pt-16 pb-10 md:pb-20">
         {/* Header */}
-        <header className="mb-10 flex items-end justify-between border-b border-white/20 pb-6">
+        <header className="mb-4 md:mb-12 flex items-end justify-between border-b border-white/20 pb-2 md:pb-6">
           <div>
             <h1 className="text-4xl md:text-6xl font-black tracking-tight">FAQ</h1>
             <p className="mt-2 text-sm md:text-base text-blue-500 font-bold uppercase tracking-widest">
@@ -259,7 +259,7 @@ export default function FAQWithSpiral() {
 function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="group relative overflow-hidden rounded-2xl border border-white/15 bg-black/40 p-5 transition hover:border-white/40">
+    <div className="group relative overflow-hidden rounded-2xl border border-white/10 glass p-5 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.02]">
       <button
         onClick={() => setOpen((v) => !v)}
         className="flex w-full items-center justify-between text-left"

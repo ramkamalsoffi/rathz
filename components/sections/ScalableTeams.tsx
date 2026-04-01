@@ -41,13 +41,13 @@ const ScalableTeams = () => {
   ];
 
   return (
-    <section className="py-24 md:py-32 bg-transparent relative">
+    <section className="py-12 md:py-20 bg-transparent relative">
       {/* Decorative background effects */}
       <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-blue-500/10 to-transparent"></div>
       <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-purple-500/10 to-transparent"></div>
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
-        <div className="text-center mb-20 space-y-6">
+        <div className="text-center mb-12 space-y-6">
           <h2 className="text-sm font-bold uppercase tracking-[0.4em] text-blue-500">Industries We Serve</h2>
           <h3 className="text-3xl md:text-7xl font-extrabold text-white tracking-tighter leading-tight">
             Built for Every Industry. <br />

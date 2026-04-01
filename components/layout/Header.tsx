@@ -22,17 +22,14 @@ const Header = () => {
 
   const navItems = [
     { label: "Features", href: "#features" },
-    { label: "Solutions", href: "#solutions" },
     { label: "Why Us", href: "#why-us" },
     { label: "Pricing", href: "#pricing" },
-    { label: "Customers", href: "#customers" },
-    { label: "Resources", href: "#blog" },
     { label: "Contact", href: "#contact" },
   ];
 
   return (
     <>
-      <motion.header 
+      <motion.header
         variants={{
           visible: { y: 0 },
           hidden: { y: -150 }
@@ -41,9 +38,9 @@ const Header = () => {
         transition={{ duration: 0.35, ease: "easeInOut" }}
         className="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50 transition-all duration-300 glass border border-white/10 rounded-[2rem] shadow-2xl backdrop-blur-xl"
       >
-        <div className="px-6 md:px-8 h-24 flex items-center justify-between">
+        <div className="px-6 md:px-8 h-16 md:h-24 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 group shrink-0">
-            <div 
+            <div
               className="w-32 aspect-[323/90] animate-shiny"
               style={{
                 background: 'linear-gradient(120deg, #ffffff 0%, #ffffff 35%, #0545B1 50%, #ffffff 65%, #ffffff 100%)',
@@ -75,10 +72,8 @@ const Header = () => {
           </nav>
 
           <div className="flex items-center gap-3 md:gap-6">
-            <button className="hidden sm:block text-xs font-semibold uppercase tracking-wider text-zinc-400 hover:text-white transition-colors">Login</button>
-            <button className="bg-primary text-white text-[10px] md:text-xs font-bold uppercase tracking-widest py-2 md:py-2.5 px-4 md:px-6 rounded-xl hover:bg-blue-600 transition-all shadow-lg shadow-blue-500/20 active:scale-95 shrink-0 flex items-center gap-2">
-              <Sparkles className="w-3 h-3" />
-              Start Trial
+            <button className="hidden sm:block text-[10px] md:text-xs font-black uppercase tracking-[0.2em] px-6 py-3 rounded-xl border border-white/10 hover:border-blue-500/50 hover:bg-white/5 transition-all active:scale-95 text-zinc-400 hover:text-white">
+              Login
             </button>
             {/* Mobile Menu Toggle */}
             <button
