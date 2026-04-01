@@ -57,9 +57,9 @@ const Features = () => {
           color1="#7d00ff" // Vibrant Purple
           color2="#0024ff" // Royal Blue
           color3="#020617"
-          hollow={false}
           hoverIntensity={0.5}
         />
+
       </div>
       <div className="max-w-7xl mx-auto px-4">
         <div className="mb-8 md:mb-12">
