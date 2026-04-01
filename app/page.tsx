@@ -10,6 +10,7 @@ import HowItWorks from '@/components/sections/HowItWorks';
 import IndicatorStats from '@/components/sections/IndicatorStats';
 // import RealResults from '@/components/sections/RealResults';
 import SocialProof from '@/components/sections/SocialProof';
+import FAQ from '@/components/sections/FAQ';
 import WhyChooseUs from '@/components/sections/WhyChooseUs';
 import CTA from '@/components/sections/CTA';
 import WaveBackground from '@/components/visuals/WaveBackground';
@@ -33,6 +34,7 @@ export default function Home() {
         <IndicatorStats />
         {/* <RealResults /> */}
         <SocialProof />
+        <FAQ />
         {/* <WhyChooseUs /> */}
         <CTA />
       </main>
