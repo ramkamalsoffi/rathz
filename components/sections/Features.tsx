@@ -50,7 +50,8 @@ const Features = () => {
     >
       <div
         ref={orbTopRef}
-        className="absolute top-[1%] left-[80%] -translate-x-1/2 w-[800px] h-[800px] pointer-events-none z-0 opacity-40 blur-[2px]"
+                className="absolute top-[1%] left-[100%] -translate-x-1/2 w-[2000px] h-[2000px] pointer-events-none z-0 opacity-40 blur-[2px]"
+
       >
         <Orb
           size={1.0}
