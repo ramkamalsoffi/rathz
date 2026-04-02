@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef, useLayoutEffect, useCallback } from 'react';
 import { gsap } from 'gsap';
 import { Quote } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const testimonials = [
   {
@@ -230,43 +231,67 @@ const SocialProof = () => {
               style={{ cursor: i === active ? 'default' : 'pointer' }}
             >
               {/* Card */}
-              <div
-                className="rounded-[2rem] p-7 md:p-9 min-h-[380px] flex flex-col justify-between border border-white/10 shadow-2xl glass"
-                style={{ background: 'rgba(255, 255, 255, 0.08)', backdropFilter: 'blur(20px)' }}
+              <motion.div
+                layout
+                animate={{
+                  scale: i === active ? 1 : 0.95,
+                  borderColor: i === active ? 'rgba(255, 255, 255, 0.4)' : 'rgba(255, 255, 255, 0.1)',
+                  zIndex: i === active ? 30 : 10,
+                }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="rounded-[2rem] p-7 md:p-9 min-h-[380px] flex flex-col justify-between border shadow-2xl relative overflow-hidden"
               >
-                {/* Active card: glowing border */}
-                {i === active && (
-                  <div className="absolute -inset-[1px] rounded-[2rem] bg-gradient-to-br from-blue-500/30 via-transparent to-purple-500/20 pointer-events-none" />
-                )}
+                {/* Background Layer: Gradient (only visible when active) */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: i === active ? 1 : 0 }}
+                  transition={{ duration: 0.8 }}
+                  className="absolute inset-0 z-0 pointer-events-none"
+                  style={{ 
+                    background: `linear-gradient(135deg, ${t.bg} 0%, rgba(5,69,177,0.3) 100%)`,
+                    backdropFilter: 'blur(32px)' 
+                  }}
+                />
 
-                {/* Quote icon */}
-                <div className="flex justify-end mb-5">
-                  <div className={`w-11 h-11 rounded-full flex items-center justify-center bg-gradient-to-br ${t.color} shadow-lg`}>
-                    <Quote className="w-4 h-4 text-white" strokeWidth={3} />
+                {/* Background Layer: Base Glass (visible when inactive) */}
+                <div 
+                  className="absolute inset-0 z-0 bg-white/[0.03] backdrop-blur-xl" 
+                />
+
+                {/* Content - relative to z-10 */}
+                <div className="relative z-10 flex flex-col h-full justify-between flex-1">
+                  {/* Quote icon */}
+                  <div className="flex justify-end mb-5">
+                    <div className={`w-11 h-11 rounded-full flex items-center justify-center bg-gradient-to-br ${t.color} shadow-xl`}>
+                      <Quote className="w-4 h-4 text-white" strokeWidth={3} />
+                    </div>
+                  </div>
+
+                  {/* Quote text */}
+                  <blockquote className="flex-1 font-bold leading-relaxed tracking-tight text-white/90 text-base md:text-xl">
+                    &ldquo;{t.quote}&rdquo;
+                  </blockquote>
+
+                  {/* Author */}
+                  <div className="mt-7 flex items-center gap-4">
+                    <div className={`w-12 h-12 rounded-full flex-shrink-0 bg-gradient-to-br ${t.color} flex items-center justify-center shadow-lg border-2 border-white/10`}>
+                      <span className="text-white font-black text-base">{t.name[0]}</span>
+                    </div>
+                    <div>
+                      <p className="text-white font-black text-base tracking-tight">{t.name}</p>
+                      <p className="text-zinc-400 text-xs font-bold tracking-widest mt-0.5 uppercase opacity-80">{t.role} · {t.company}</p>
+                    </div>
                   </div>
                 </div>
 
-                {/* Quote text */}
-                <blockquote className="flex-1 font-bold leading-relaxed tracking-tight text-white text-base md:text-lg">
-                  &ldquo;{t.quote}&rdquo;
-                </blockquote>
-
-                {/* Author */}
-                <div className="mt-7 flex items-center gap-3">
-                  <div className={`w-10 h-10 rounded-full flex-shrink-0 bg-gradient-to-br ${t.color} flex items-center justify-center shadow-md`}>
-                    <span className="text-white font-black text-sm">{t.name[0]}</span>
-                  </div>
-                  <div>
-                    <p className="text-white font-black text-sm tracking-tight">{t.name}</p>
-                    <p className="text-zinc-500 text-xs font-bold tracking-wide mt-0.5">{t.role} · {t.company}</p>
-                  </div>
-                </div>
-
-                {/* Active card: bottom glow line */}
+                {/* Active card marker line */}
                 {i === active && (
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-blue-500/70 to-transparent" />
+                  <motion.div 
+                    layoutId="activeGlow"
+                    className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-blue-400 to-transparent shadow-[0_0_15px_rgba(59,130,246,0.6)] z-20" 
+                  />
                 )}
-              </div>
+              </motion.div>
             </div>
           ))}
         </div>

@@ -228,7 +228,7 @@ export default function FAQWithSpiral() {
       </div>
 
       {/* Layout */}
-      <div className="relative mx-auto max-w-5xl px-6 pt-0 md:pt-16 pb-10 md:pb-20">
+      <div className="relative mx-auto max-w-5xl px-6 pt-0 md:pt-8 pb-6 md:pb-12">
         {/* Header */}
         <header className="mb-4 md:mb-12 flex items-end justify-between border-b border-white/20 pb-2 md:pb-6">
           <div>

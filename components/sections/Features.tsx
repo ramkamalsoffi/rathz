@@ -46,11 +46,11 @@ const Features = () => {
     <section
       id="features"
       ref={sectionRef}
-      className="bg-transparent pt-16 pb-16 md:pt-24 md:pb-24 relative overflow-x-clip"
+      className="bg-transparent py-0 relative overflow-x-clip"
     >
       <div
         ref={orbTopRef}
-        className="absolute top-[1%] left-[100%] -translate-x-1/2 w-[2000px] h-[2000px] pointer-events-none z-0 opacity-40 blur-[2px]"
+        className="absolute top-[1%] left-[80%] -translate-x-1/2 w-[800px] h-[800px] pointer-events-none z-0 opacity-40 blur-[2px]"
       >
         <Orb
           size={1.0}

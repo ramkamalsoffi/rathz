@@ -52,7 +52,7 @@ const ScalableTeams = () => {
           <h3 className="text-3xl md:text-7xl font-extrabold text-white tracking-tighter leading-tight">
             Built for Every Industry. <br />
             <ShinyText
-              text="Designed for India."
+              text="Crafted for Global Businesses"
               disabled={false}
               speed={3}
               className="text-zinc-400"

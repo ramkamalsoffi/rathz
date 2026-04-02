@@ -38,10 +38,10 @@ const Header = () => {
         transition={{ duration: 0.35, ease: "easeInOut" }}
         className="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50 transition-all duration-300 glass border border-white/10 rounded-[2rem] shadow-2xl backdrop-blur-xl"
       >
-        <div className="px-6 md:px-8 h-16 md:h-24 flex items-center justify-between">
+        <div className="px-6 md:px-8 h-14 md:h-20 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 group shrink-0">
             <div
-              className="w-32 aspect-[323/90] animate-shiny"
+              className="w-24 aspect-[323/90] animate-shiny"
               style={{
                 background: 'linear-gradient(120deg, #ffffff 0%, #ffffff 35%, #0545B1 50%, #ffffff 65%, #ffffff 100%)',
                 backgroundSize: '200% auto',
@@ -72,7 +72,7 @@ const Header = () => {
           </nav>
 
           <div className="flex items-center gap-3 md:gap-6">
-            <button className="hidden sm:block text-[10px] md:text-xs font-black uppercase tracking-[0.2em] px-6 py-3 rounded-xl border border-white/10 hover:border-blue-500/50 hover:bg-white/5 transition-all active:scale-95 text-zinc-400 hover:text-white">
+            <button className="hidden sm:block text-[10px] md:text-xs font-black uppercase tracking-[0.2em] px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 border border-white/20 hover:scale-105 hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all active:scale-95 text-white">
               Login
             </button>
             {/* Mobile Menu Toggle */}
@@ -105,7 +105,7 @@ const Header = () => {
               </Link>
             ))}
             <div className="w-full h-px bg-white/5 my-4"></div>
-            <button className="w-full py-4 text-center text-sm font-bold text-white uppercase tracking-widest bg-blue-950/50 border border-white/10 rounded-2xl hover:bg-blue-600 transition-colors">
+            <button className="w-full py-4 text-center text-sm font-black text-white uppercase tracking-widest bg-gradient-to-r from-blue-600 to-purple-600 border border-white/20 rounded-2xl hover:scale-[1.02] shadow-xl transition-all">
               Login
             </button>
           </nav>

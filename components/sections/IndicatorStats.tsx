@@ -29,7 +29,7 @@ const IndicatorStats = () => {
   ];
 
   return (
-    <section className="py-24 md:py-32 bg-transparent relative overflow-hidden">
+    <section className="py-12 md:py-16 bg-transparent relative overflow-hidden">
       {/* Background SVG Overlay */}
       <div 
         className="absolute inset-0 z-0 pointer-events-none opacity-20"

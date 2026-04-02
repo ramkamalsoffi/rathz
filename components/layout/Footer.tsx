@@ -73,7 +73,7 @@ const Footer = () => {
 
           {/* Copyright */}
           <p className="text-xs text-zinc-600 leading-relaxed max-w-[200px]">
-            &copy; {new Date().getFullYear()} Rathz Systems Pvt Ltd.<br />
+            &copy; {new Date().getFullYear()} Webnox Technologies Pvt. Ltd.<br />
             All rights reserved.
           </p>
         </div>

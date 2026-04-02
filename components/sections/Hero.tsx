@@ -1,6 +1,7 @@
 import React from "react";
 import Orb from "@/components/ui/Orb";
 import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
+import { GlowButton } from "@/components/ui/glow-button";
 
 const Hero = () => {
   return (
@@ -42,13 +43,13 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 w-full sm:w-auto animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-300">
-            <InteractiveHoverButton className="w-full sm:w-auto h-12 sm:h-14 px-8 sm:px-10 text-xs md:text-base font-black tracking-widest uppercase shadow-[0_20px_50px_-10px_rgba(37,99,235,0.5)]">
+            <GlowButton className="w-full sm:w-auto h-12 sm:h-14 px-8 sm:px-12 text-xs md:text-base">
               Start Free Trial
-            </InteractiveHoverButton>
+            </GlowButton>
 
-            <button className="w-full sm:w-auto bg-zinc-950/50 backdrop-blur-xl text-white px-8 sm:px-10 py-3 sm:py-4 rounded-2xl text-[10px] sm:text-sm font-black uppercase tracking-widest hover:bg-zinc-900 transition-all border border-white/10 active:scale-95 shadow-2xl">
+            <InteractiveHoverButton className="w-full sm:w-auto h-12 sm:h-14 px-8 sm:px-10 text-xs md:text-base font-black tracking-widest uppercase bg-zinc-950/50 backdrop-blur-xl border-white/10 shadow-2xl">
               Book a Private Demo
-            </button>
+            </InteractiveHoverButton>
           </div>
         </div>
       </div>
